@@ -4,6 +4,7 @@ using SLM.Bussiness.DataServices;
 using SLM.Bussiness.DataServices.Interfaces;
 using SLM.Bussiness.Models;
 using System.Drawing.Text;
+using System.Reflection;
 
 namespace SLM.WebApp.Controllers
 {
@@ -26,8 +27,10 @@ namespace SLM.WebApp.Controllers
             //courses.Add(new CoursesModel { Id = 1, Name = "DotNet Web Development" });
             //courses.Add(new CoursesModel { Id = 2, Name = "Graphic Designing" });
             //courses.Add(new CoursesModel { Id = 3, Name = "Software Quality Assurance" });
-            List<CoursesModel> courses = null;
-            if(Search == null)
+            //List<CoursesModel> courses = null;
+            List<CoursesModel> courses = new List<CoursesModel>();
+
+            if (Search == null)
             {
               courses = _coursesService.GetAll();
             }
@@ -36,13 +39,39 @@ namespace SLM.WebApp.Controllers
                 courses = _coursesService.GetAll().Where(x => x.Name.ToLower().Contains(Search.Trim().ToLower())).ToList();
             }
 
+          
+           
             return View(courses);
         }
 
         // GET: CoursesController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int Id)
         {
-            return View();
+            var course = _coursesService.GetAll().Where(x => x.Id == Id).FirstOrDefault();
+            return View(course);
+
+        }
+        // POST: CoursesController/Details/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Details(CoursesModel model)
+        {
+            try
+            {
+                var course = _coursesService.GetAll().Where(x => x.Id == model.Id).FirstOrDefault();
+                if (course != null)
+                {
+                    course.Name = model.Name;
+                    course.Duration = model.Duration;
+                    course.Description = model.Description;
+
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: CoursesController/Create
@@ -85,6 +114,9 @@ namespace SLM.WebApp.Controllers
                 if (course != null)
                 {
                     course.Name = model.Name;
+                    course.Duration = model.Duration;
+                    course.Description = model.Description;
+                    
                 }
                 return RedirectToAction(nameof(Index));
             }

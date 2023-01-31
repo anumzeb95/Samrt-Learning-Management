@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" 
                     height="60px" width="60px"/></a>
@@ -23,46 +23,48 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="About">About</a>
                         </li>
-                        <li><div class="dropdown">
-                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"  style="background">
-                           Dropdown button
-                         </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                      <li><a class="dropdown-item" href="#">Action</a></li>
-                                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                        </div></li> 
                         <li>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    </li>
-         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <div class="nav-item dropdown">
+                                <a class="nav-link text-white  link-white dropdown-toggle " role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                           Courses
+                         </a>
+                                <div class="dropdown-menu dropdown-menu-dark bg-dark"  aria-labelledby="navbarDropdown">
+                                      <a class="dropdown-item" href="#">Dotnet Web development</a>
+                                     <a class="dropdown-item" href="#">Software Quality Assurance</a>
+                                     <a class="dropdown-item" href="#">Graphic Designing</a>
+                                </div>
+                        </div></li> 
+                       
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Contact</a>
                         </li>                 
                       
                     </ul>
+                  
                 </div>
+
+
+                
+
+                <div>
+                    <button class="btn btn-warning btn-sm  active" Text="Submit" Width="60px" OnClick="btnSubmit_Click">
+                        Login
+                    </button>
+                 
+                    <button class="btn btn-warning btn-sm  active" Text="Submit" Width="29px" OnClick="btnSubmit_Click">
+                        Register
+                    </button>
+
+                    <div class="divider" />
+                </div>
+
+
+              
             </div>
         </nav>
 
@@ -80,7 +82,11 @@
 
                 .navbar ul li a:hover
                 {
-                    background: #333;
+                background: #FEBE00;
+                mix-blend-mode:lighten;
+                color: transparent;
+               
+                
                     color: #ffff;
 
                 }
@@ -90,14 +96,22 @@
                 position:absolute;
                 left:0;
                 width: 500px;
-                background: #ffff;
+                background:#212121;
             }
             
             .navbar ul li ul li
             {
-                width:100%;
+                width:60%;
                 border-top: 1px solid rgba(0,0,0,.1);
             }
+
+            .divider {
+                width: 6px;
+                height: auto;
+                display: inline-block;
+            }
+
+            
             
             </style>
     </header>

@@ -7,12 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SLM.Bussiness.Interfaces\SLM.Bussiness.Interfaces.csproj" />
+    <Compile Remove="Implementations\**" />
+    <EmbeddedResource Remove="Implementations\**" />
+    <None Remove="Implementations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SLM.Bussiness.Models\SLM.Bussiness.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Implementations\" />
+    <Folder Include="Impleentations\" />
   </ItemGroup>
 
 </Project>

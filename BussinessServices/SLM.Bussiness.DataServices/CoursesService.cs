@@ -45,4 +45,8 @@ namespace SLM.Bussiness.DataServices
             //throw new NotImplementedException();
         }
     }
+
+    public interface ICourseService
+    {
+    }
 }

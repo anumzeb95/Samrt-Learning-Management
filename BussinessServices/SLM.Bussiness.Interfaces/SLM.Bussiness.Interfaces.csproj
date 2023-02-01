@@ -7,12 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SLM.Bussiness.Interfaces\SLM.Bussiness.Interfaces.csproj" />
     <ProjectReference Include="..\SLM.Bussiness.Models\SLM.Bussiness.Models.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Implementations\" />
   </ItemGroup>
 
 </Project>

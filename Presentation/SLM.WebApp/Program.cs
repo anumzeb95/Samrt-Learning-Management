@@ -1,5 +1,5 @@
 using SLM.Bussiness.DataServices;
-using SLM.Bussiness.DataServices.Interfaces;
+using SLM.Bussiness.Interfaces;
 
 namespace SLM.WebApp
 {

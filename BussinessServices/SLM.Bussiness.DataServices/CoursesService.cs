@@ -1,5 +1,5 @@
 ﻿
-using SLM.Bussiness.Interfaces;
+using SLM.Bussiness.DataServices.Interfaces;
 using SLM.Bussiness.Models;
 
 namespace SLM.Bussiness.DataServices
@@ -44,9 +44,5 @@ namespace SLM.Bussiness.DataServices
 
             //throw new NotImplementedException();
         }
-    }
-
-    public interface ICourseService
-    {
     }
 }

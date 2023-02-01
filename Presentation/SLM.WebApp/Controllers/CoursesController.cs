@@ -1,6 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
-using SLM.Bussiness.Interfaces;
+using SLM.Bussiness.DataServices.Interfaces;
 using SLM.Bussiness.Models;
 
 namespace SLM.WebApp.Controllers

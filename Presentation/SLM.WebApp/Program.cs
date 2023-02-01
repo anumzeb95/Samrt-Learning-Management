@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using SLM.Bussiness.DataServices;
-using SLM.Bussiness.Interfaces;
+using SLM.Bussiness.DataServices.Interfaces;
+using SLM.Data;
 
 namespace SLM.WebApp
 {
@@ -11,6 +13,11 @@ namespace SLM.WebApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            //Configure entity framework
+            builder.Services.AddDbContext<SLManagementDbContext>(
+            options => options.UseSqlServer("Data Source= localhost; Database = SLMSystem; Integrated Security=SSPI; TrustServerCertificate=True;"));
+
 
 
             //all of the custom configuration

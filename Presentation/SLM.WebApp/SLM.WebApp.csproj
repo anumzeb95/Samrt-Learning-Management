@@ -14,12 +14,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.11" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\BussinessServices\SLM.Bussiness.DataServices\SLM.Bussiness.DataServices.csproj" />
     <ProjectReference Include="..\..\BussinessServices\SLM.Bussiness.Models\SLM.Bussiness.Models.csproj" />
+    <ProjectReference Include="..\..\Repositories\SLM.Data\SLM.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>

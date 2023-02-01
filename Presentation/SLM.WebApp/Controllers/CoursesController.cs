@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
 using Microsoft.AspNetCore.Mvc;
-using SLM.Bussiness.DataServices;
-using SLM.Bussiness.DataServices.Interfaces;
+using SLM.Bussiness.Interfaces;
 using SLM.Bussiness.Models;
-using System.Drawing.Text;
-using System.Reflection;
 
 namespace SLM.WebApp.Controllers
 {

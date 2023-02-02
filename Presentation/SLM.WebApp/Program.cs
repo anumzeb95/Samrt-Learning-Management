@@ -21,7 +21,7 @@ namespace SLM.WebApp
 
 
             //all of the custom configuration
-            builder.Services.AddSingleton<ICourseService, CoursesService>();
+            builder.Services.AddScoped<ICourseService, CoursesService>();
             
             var app = builder.Build();
 

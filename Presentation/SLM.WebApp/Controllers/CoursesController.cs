@@ -20,12 +20,7 @@ namespace SLM.WebApp.Controllers
         public ActionResult Index(string? Search)
         {
 
-            //var courses = new List<CoursesModel>();
-            //courses.Add(new CoursesModel { Id = 1, Name = "DotNet Web Development" });
-            //courses.Add(new CoursesModel { Id = 2, Name = "Graphic Designing" });
-            //courses.Add(new CoursesModel { Id = 3, Name = "Software Quality Assurance" });
-            //List<CoursesModel> courses = null;
-            List<CoursesModel> courses = new List<CoursesModel>();
+            List<CoursesModel> courses;
 
             if (Search == null)
             {
@@ -33,7 +28,7 @@ namespace SLM.WebApp.Controllers
             }
             else
             {
-                courses = _coursesService.GetAll().Where(x => x.Name.ToLower().Contains(Search.Trim().ToLower())).ToList();
+                courses = _coursesService.Search(Search);
             }
 
           
@@ -60,6 +55,7 @@ namespace SLM.WebApp.Controllers
                 {
                     course.Name = model.Name;
                     course.Duration = model.Duration;
+                    course.Teacher = model.Teacher;
                     course.Description = model.Description;
 
                 }
@@ -107,14 +103,7 @@ namespace SLM.WebApp.Controllers
         {
             try
             {
-                var course = _coursesService.GetAll().Where(x => x.Id == model.Id).FirstOrDefault();
-                if (course != null)
-                {
-                    course.Name = model.Name;
-                    course.Duration = model.Duration;
-                    course.Description = model.Description;
-                    
-                }
+                _coursesService.Update(model); ;
                 return RedirectToAction(nameof(Index));
             }
             catch

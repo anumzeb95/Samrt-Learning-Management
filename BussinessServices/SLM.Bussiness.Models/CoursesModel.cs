@@ -8,6 +8,8 @@
 
         public string Duration { get; set; }= string.Empty;
 
+        public string Teacher { get; set; } = string.Empty;
+
         public string Modification { get; set; } = string.Empty;
 
         public string Description { get; set; } = string.Empty;

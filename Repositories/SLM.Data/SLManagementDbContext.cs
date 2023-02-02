@@ -10,12 +10,11 @@ namespace SLM.Data
         {
 
         }
+
+        //all entities from databse as dbsets
         public DbSet<Courses>Courses { get; set; }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder options)
-        //{
-        //    options.UseSqlServer($"Data Source={DbPath}");
-        //}
+
 
 
     }

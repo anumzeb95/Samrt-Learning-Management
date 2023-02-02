@@ -15,6 +15,16 @@
             
 
                 <input asp-for="Id" class="form-control" type="hidden" />
+
+            <div class="col-sm-2 position-relative">
+                <!-- Image upload -->
+
+                <a class="brand">
+                    <img class="rounded mx-auto d-block" src="~/images/eddit.jpg"
+                         height="400px" width="800px" />
+                </a>
+            </div>
+            <br />
                     
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -22,6 +32,9 @@
 
                 <label asp-for="Duration" class="control-label"></label>
                 <input asp-for="Duration" class="form-control" />
+
+                <label asp-for="Teacher" class="control-label"></label>
+                <input asp-for="Teacher" class="form-control" />
 
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />

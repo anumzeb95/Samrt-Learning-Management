@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Repositories\SLM.Data\SLM.Data.csproj" />
     <ProjectReference Include="..\SLM.Bussiness.Interfaces\SLM.Bussiness.Interfaces.csproj" />
     <ProjectReference Include="..\SLM.Bussiness.Models\SLM.Bussiness.Models.csproj" />
   </ItemGroup>

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SLM.Data;
 
@@ -10,9 +11,11 @@ using SLM.Data;
 namespace SLM.Data.Migrations
 {
     [DbContext(typeof(SLManagementDbContext))]
-    partial class SLManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230201222345_teach_added")]
+    partial class teachadded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

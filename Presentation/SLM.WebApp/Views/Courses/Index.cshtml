@@ -5,12 +5,30 @@
 }
 
 <h1>Courses List</h1>
-<div>
-    <form asp-action="Index">
+<div >
+    
+    <div>
+        <form asp-action="Index" class="input-group-text bg-light bg-opacity-0"  id="input-search" width="400" height="10">
 
-        <input type="text" name="Search" class="form-control" /> <br />
-        <input type="submit" value="Search" class="btn btn-primary" />
-    </form>
+            <input type="text" class="form-control " placeholder="search" aria-label="Search" /> <br />
+
+            <div>
+                   
+
+                   <input type="submit" value="Search" class="btn btn-primary" />
+
+                   <a asp-action="Index">Display List</a>
+
+            </div>
+
+        </form>
+           
+    </div>
+   
+
+        
+        
+    
 </div>
 <p>
     <a asp-action="Create">Create New</a>
@@ -27,6 +45,11 @@
             <th>
                 @Html.DisplayNameFor(model => model.Duration)
             </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Teacher)
+            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Modification)
             </th>
@@ -43,9 +66,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-                <td>
+
+            <td>
                     @Html.DisplayFor(modelItem => item.Duration)
-                </td>
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher)
+            </td>
+               
             <td>
                     @Html.ActionLink("Edit", "Edit", new { Id = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { Id = item.Id }) |

@@ -11,9 +11,16 @@ namespace SLM.Bussiness.DataServices.Interfaces
     {
         List<CoursesModel> GetAll();
 
+        List<CoursesModel> Search(string searchTerm);
+
         public void Add(CoursesModel model);
+
+        public void Update(CoursesModel model);
+
         public void Details( int Id);
-        public void Delete(int Id)
-            ;
+
+        public void Delete(int Id);
+
+        
     }
 }

@@ -9,7 +9,19 @@
 <div>
     <h4>CoursesModel</h4>
     <hr />
+
+    <div class="col-sm-2 position-relative">
+            <!-- Image upload -->
+
+            <a class="brand">
+                <img class="rounded mx-auto d-block" src="~/images/det.jpg"
+                     height="400px" width="800px" />
+            </a>
+        </div>
+
     <dl class="row">
+         
+
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Id)
         </dt>
@@ -27,6 +39,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Duration)
+        </dd>
+          <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Teacher)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Teacher)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Description)

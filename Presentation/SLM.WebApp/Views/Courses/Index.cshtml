@@ -8,14 +8,14 @@
 <div >
     
     <div>
-        <form asp-action="Index" class="input-group-text bg-light bg-opacity-0"  id="input-search" width="400" height="10">
+        <form asp-action="Index">
 
-            <input type="text" class="form-control " placeholder="search" aria-label="Search" /> <br />
+            <input type="text" name="Search" class="form-control" placeholder="search" aria-label="Search" width="400" height="10" /> <br />
 
             <div>
-                   
 
-                   <input type="submit" value="Search" class="btn btn-primary" />
+
+               <input type="submit" value="Search" class="btn btn-primary" />
 
                    <a asp-action="Index">Display List</a>
 
@@ -24,16 +24,14 @@
         </form>
            
     </div>
-   
-
-        
-        
+          
     
-</div>
+</div> <br />
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>
@@ -54,8 +52,7 @@
                 @Html.DisplayNameFor(model => model.Modification)
             </th>
 
-            <th></th>
-        </tr>
+            </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {

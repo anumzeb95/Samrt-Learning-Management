@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Protocols;
 using SLM.Bussiness.DataServices;
 using SLM.Bussiness.DataServices.Interfaces;
 using SLM.Data;
+using SLM.Data.Interfaces;
 using System.Runtime.CompilerServices;
 
 namespace SLM.DependencyInjection
@@ -20,7 +21,8 @@ namespace SLM.DependencyInjection
             options => options.
             UseSqlServer(configuration.GetConnectionString("DbConnection")));
 
-
+            //repositories configuration
+            services.AddScoped(typeof (IRepository<>), typeof(Repository<>));
 
             //all of the custom configuration
             services.AddScoped<ICourseService, CoursesService>();

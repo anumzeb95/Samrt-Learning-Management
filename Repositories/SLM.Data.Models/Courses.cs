@@ -1,9 +1,7 @@
 ﻿namespace SLM.Data.Models
 {
-    public class Courses
+    public class Courses : BaseEntity
     {
-        public int Id { get; set; }
-
         public string Name { get; set; } = string.Empty;
 
         public string Duration { get; set; } = string.Empty;

@@ -23,14 +23,15 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Index" asp-action="Homepage">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Index" asp-action="About">About</a>
                         </li>
                         <li>
                             <div class="nav-item dropdown">
-                                <a class="nav-link text-white  link-white dropdown-toggle " role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link text-white   link-white dropdown-toggle " asp-controller="Index" asp-action="Courses"
+                                role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                            Courses
                          </a>
                                 <div class="dropdown-menu dropdown-menu-dark bg-dark"  aria-labelledby="navbarDropdown">

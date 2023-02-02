@@ -34,6 +34,8 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\lecture\Dotnet Web development\" />
+    <Folder Include="wwwroot\lecture\Software Quality Assurance\" />
   </ItemGroup>
 
 </Project>

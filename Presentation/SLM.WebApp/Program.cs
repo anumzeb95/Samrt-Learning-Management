@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using SLM.Bussiness.DataServices;
 using SLM.Bussiness.DataServices.Interfaces;
 using SLM.Data;
+using SLM.DependencyInjection;
 
 namespace SLM.WebApp
 {
@@ -14,16 +15,13 @@ namespace SLM.WebApp
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            //Configure entity framework
-            builder.Services.AddDbContext<SLManagementDbContext>(
-            options => options.UseSqlServer("Data Source= localhost; Database = SLMSystem; Integrated Security=SSPI; TrustServerCertificate=True;"));
+
+            //All application DI configyrations
+            builder.Services.AppDISetup(builder.Configuration);
 
 
 
-            //all of the custom configuration
-            builder.Services.AddScoped<ICourseService, CoursesService>();
-            
-            var app = builder.Build();
+           var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

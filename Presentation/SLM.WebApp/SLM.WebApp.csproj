@@ -28,6 +28,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\BussinessServices\SLM.Bussiness.DataServices\SLM.Bussiness.DataServices.csproj" />
     <ProjectReference Include="..\..\BussinessServices\SLM.Bussiness.Models\SLM.Bussiness.Models.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\SLM.DependencyInjection\SLM.DependencyInjection.csproj" />
     <ProjectReference Include="..\..\Repositories\SLM.Data\SLM.Data.csproj" />
   </ItemGroup>
 

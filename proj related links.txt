@@ -26,3 +26,9 @@ https://www.infinetsoft.com/Post/File-upload-and-download-in-asp-net-MVC/2528#.Y
 https://www.c-sharpcorner.com/UploadFile/65794e/uploading-and-downloading-in-mvc/
 https://www.codeproject.com/Articles/1001348/Uploading-and-Downloading-in-MVC-Step-by-Step
 
+
+template link:
+https://www.youtube.com/watch?v=-k9ds5oKuqE
+https://www.youtube.com/watch?v=CzRM-hOe35o&list=PPSV
+https://www.youtube.com/watch?v=9FcEydEa69k&list=PPSV
+https://www.youtube.com/watch?v=PQF2x2iFUag&list=PPSV

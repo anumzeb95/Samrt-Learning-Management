@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SLM.Bussiness.Interfaces", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SLM.DependencyInjection", "Infrastructure\SLM.DependencyInjection\SLM.DependencyInjection.csproj", "{C8979D4B-A0A1-4C98-BA7B-B1CD193BC044}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLM.Data.Interfaces", "Repositories\SLM.Data.Interfaces\SLM.Data.Interfaces.csproj", "{F7A5DA07-5B44-490B-ACD4-6D0C2C5D7988}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SLM.Data.Interfaces", "Repositories\SLM.Data.Interfaces\SLM.Data.Interfaces.csproj", "{F7A5DA07-5B44-490B-ACD4-6D0C2C5D7988}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

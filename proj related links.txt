@@ -39,3 +39,13 @@ https://www.youtube.com/watch?v=PQF2x2iFUag&list=PPSV
 
 
 https://www.youtube.com/watch?v=-k9ds5oKuqE
+
+
+
+
+
+lecture upload and download:
+https://www.google.com/search?q=upload+and+download+file+mvc+c%23+using+www.root&sxsrf=AJOqlzUIzVlu6re7BfR_HBRmS-i9PbG68g:1675475063126&source=lnms&tbm=vid&sa=X&ved=2ahUKEwigtt7_3vr8AhWigv0HHeDdAyEQ_AUoAXoECAEQAw&biw=1536&bih=722&dpr=1.25
+http://www.aspdotnet-pools.com/2022/01/upload-file-to-wwwroot-folder-in-aspnet.html
+https://www.infinetsoft.com/Post/File-upload-and-download-in-asp-net-MVC/2528#.Y924kHZBxPY
+https://www.aspsnippets.com/Articles/Upload-and-Download-Files-from-Folder-and-Path-in-Database-using-Web-API-in-ASPNet-MVC.aspx

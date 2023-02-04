@@ -1,6 +1,6 @@
 ﻿
 using AutoMapper;
-using SLM.Bussiness.DataServices.Interfaces;
+using SLM.Bussines.Interfaces;
 using SLM.Bussiness.Models;
 using SLM.Data;
 using SLM.Data.Interfaces;
@@ -16,7 +16,7 @@ namespace SLM.Bussiness.DataServices
          {
             _repository = repository;
          }
-        //part 8 , 25:43
+        
 
 
         public List<CoursesModel> Search(string searchTerm)

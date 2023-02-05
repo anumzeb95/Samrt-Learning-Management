@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using SLM.Bussiness.Interfaces;
 using System.IO;
+using SLM.Data.Models;
+using System.Data;
 
 namespace SLM.WebApp.Controllers
 {
@@ -21,8 +23,27 @@ namespace SLM.WebApp.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var LectureModel = new LectureModel { LectureName = "DOT1" };
-            _lectureService.Add(LectureModel);
+            //var LectureModel = new LectureModel { LectureName = "DOT1" };
+            //_lectureService.Add(LectureModel);
+
+
+            //List<Lecture> list = new List<Lecture>();
+            //DataTable DbSet = Lecture();
+            //foreach (DataRow dr in DbSet.Rows)
+            //{
+            //    list.Add(new Lecture
+            //    {
+
+            //        Id = model.Id,
+            //        LectureName = model.LectureName,
+            //        LectureDescription = model.LectureDescription,
+            //        LectureURL = model.LectureURL,
+            //        CourseId = model.Id,
+
+            //    });
+            //}
+            //model.FileList = list;
+            //return View(model);
 
             var models = _lectureService.GetAll();
             return View();

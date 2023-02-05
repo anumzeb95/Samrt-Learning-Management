@@ -1,6 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using SLM.Bussiness.DataServices;
-using SLM.Bussiness.DataServices.Interfaces;
 using SLM.Data;
 using SLM.DependencyInjection;
 

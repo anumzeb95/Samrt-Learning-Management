@@ -1,12 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Protocols;
+using SLM.Bussines.Interfaces;
 using SLM.Bussiness.DataServices;
-using SLM.Bussiness.DataServices.Interfaces;
 using SLM.Data;
 using SLM.Data.Interfaces;
-using System.Runtime.CompilerServices;
 
 namespace SLM.DependencyInjection
 {

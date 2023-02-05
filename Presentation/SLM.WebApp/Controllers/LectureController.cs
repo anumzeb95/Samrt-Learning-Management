@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using SLM.Bussiness.Interfaces;
 using System.IO;
-using System.Web;
-using System.Net.Http;
-using System.Net.Http.Headers;
+
 namespace SLM.WebApp.Controllers
 {
     public class LectureController : Controller

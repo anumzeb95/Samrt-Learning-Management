@@ -12,7 +12,7 @@ namespace SLM.Bussiness.DataServices
     public class LectureService : GenericService<LectureModel, Lecture>, ILectureService
     {
         private readonly IRepository<Lecture> _repository;
-         public LectureService(IRepository<Courses> repository, IMapper mapper) : base(repository, mapper) 
+         public LectureService(IRepository<Lecture> repository, IMapper mapper) : base(repository, mapper) 
          {
             _repository = repository;
          }

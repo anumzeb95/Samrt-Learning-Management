@@ -28,19 +28,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="About">About</a>
                         </li>
-                        <li>
-                            <div class="nav-item dropdown">
-                                <a class="nav-link text-white   link-white dropdown-toggle " asp-controller="Home" asp-action="Courses"
-                                role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                           Courses
-                         </a>
-                                <div class="dropdown-menu dropdown-menu-dark bg-dark"  aria-labelledby="navbarDropdown">
-                                      <a class="dropdown-item" href="#">Dotnet Web development</a>
-                                     <a class="dropdown-item" href="#">Software Quality Assurance</a>
-                                     <a class="dropdown-item" href="#">Web Designing</a>
-                                </div>
-                        </div></li> 
-                       
+                     
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                         </li>                 
@@ -54,12 +42,12 @@
 
                 <div>
                     <button class="btn btn-warning btn-sm  active" Text="Submit" Width="60px" OnClick="btnSubmit_Click">
-                        Login
+                        Logout
                     </button>
                  
-                    <button class="btn btn-warning btn-sm  active" Text="Submit" Width="29px" OnClick="btnSubmit_Click">
+                    @*<button class="btn btn-warning btn-sm  active" Text="Submit" Width="29px" OnClick="btnSubmit_Click">
                         Register
-                    </button>
+                    </button>*@
 
                     <div class="divider" />
                 </div>
@@ -69,6 +57,15 @@
             </div>
         </nav>
 
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Dashboard</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Lecture</a>
+            
+            </div>
+        </div>
 
         <style>
             .dropdown-menu {
@@ -116,12 +113,16 @@
             
             </style>
     </header>
+    
+    
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
+    
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - Store-Learining-Managmenet.WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

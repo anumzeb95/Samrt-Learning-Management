@@ -2,23 +2,30 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="text-lg-center">
-    <img src="~/images/home8.jpg" height="620px" width="1100px class=" rounded" style="margin-right:0px; border-right:0px; padding-top:5px;padding-right:0px; padding-left:5px">
-<div class="row">
+<div class="p-3 mb-2 bg-light text-dark">
+<div class="ratio ratio-4x3">
+        <div>  <img src="~/images/main.png" class="card-img-top" style="padding-top:5px;" alt="..."> </div>
+       
+            
+
+         <label style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:50px;font-display:auto;
+color:white;text-align:center;padding-top:300px;"><b>Smart Learning With Free Online Courses</b></label>
+
+     <div class="row" style="padding-top:600px;">
         <div class="col-sm-4">
             <div class="card" style="width: 18rem; height: 25rem;">
-                <img src="~/images/co.png" class="card-img-top" alt="...">
+                    <img src="~/images/co.png" style="height: 15rem;"  class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">DotNet Web Development</h5>
                     <p class="card-text">Instructor Name:ABC ,Duration:1hrs </p>
-                    <a href="~/Courses/About.cshtml" class="btn btn-primary">Go somewhere</a>
+                    <a href="~/Courses/DotnetWeb Development/About.cshtml" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
 
         <div class="col-sm-4">
             <div class="card" style="width: 18rem; height: 25rem;">
-                <img src="~/images/aqa.jpg" class="card-img-top" alt="...">
+                <img src="~/images/aqa.jpg" style="height: 15rem;" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Software Quality Assurance</h5>
                     <p class="card-text">Instructor Name:ABC ,Duration:1hrs</p>
@@ -29,7 +36,7 @@
 
         <div class="col-sm-4">
             <div class="card" style="width: 18rem; height: 25rem;">
-                <img src="~/images/ds.jpg" class="card-img-top" alt="...">
+                <img src="~/images/ds.jpg" style="height: 15rem;" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Web Designing</h5>
                     <p class="card-text">Instructor Name:ABC ,Duration:1hrs</p>
@@ -38,32 +45,87 @@
             </div>
         </div>
 </div>
-
-</div>
-
+ </div>
 
 <br />
 <br />
+    <br />
+    <br />
+<div class="text" >
+    <div class="row">
+        <div class="col-md-4 g-0">
+            <div class="card" style="max-width: 520px;">
+            <img src="~/images/verification.png" height="300px" width="400px class="rounded" style="padding-top:2px;">
+        </div>
+        </div>
+        <div class="col-md-8">
+            <br />
+                <h5 class="card-title" style="font-size:40px;"><b>Join Us To Learn</b></h5> <br />
+            <p class="card-text" style="font-size:18px;" ><i> Smart Learning Management System is the best 
+               platform to help you enhance your skills and expand your knowledge and prepare you for your
+                    future anytime from anywhere</i>
+            </p>
+               @*<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>*@
+            <button asp-action="Register" class="btn btn-primary btn-align-left btn-lg btn-rounded"
+                    asp-controller="Courses" asp-action="Index" height="30px" width="40px">
+                Register Yourself
+            </button>
+        </div>
+    </div>
+</div>
+
 <br />
-<div class="text-right">
-    <img src="~/images/home1.jpg" height="320px" width="400px class="rounded" style="padding-top:80px;">
-</div>
-
-<div class="text-left">
-    <label></label>
-    <button asp-action="Index" class="btn btn-primary btn-align-left btn-sm"
-            asp-controller="Courses" asp-action="Index" height="30px" width="40px">
-        Courses List
-    </button>
-</div>
 <br />
-<div>
+<div class="text">
+    <div class="row">
+        <div class="col-md-8">
+            <br />
+            <h5 class="card-title" style="font-size:40px;"><b>Explore More Courses</b></h5>
+            <p class="card-text" style="font-size:18px;">
+                <i>
+                    Smart Learning Management System choose best
+                    courses to help you enhance your skills 
+                </i>
+            </p>
+               @* <button class="btnbtn-primary btn-align-left btn-lg btn-rounded" height="30px" width="40px">
+                    <a class="nav-link text-white" asp-area="" asp-controller="Courses" asp-action="Index">Courses List</a>
+                </button>*@
 
+           <a  class="link-info"> <button asp-action="Index" class="btn btn-primary btn-align-left btn-lg btn-rounded"
+                    asp-controller="Courses" asp-action="Index" >
+                Courses List
+                    </button>
+                </a>
+           
+        </div>
+        <div class="col-md-4 g-0">
+            <div class="card" style="max-width: 520px;">
+                <img src="~/images/home1.jpg" height="300px" width="400px class="rounded" style="padding-top:2px;">
+            </div>
+        </div>
+       
+    </div>
 
-  
-    <button asp-action="Register" class="btn btn-primary btn-align-center btn-lg" height="30px" width="40px">Register Yourself</button>
-
+    <br />
+    <br />
 </div>
+    <div class="p-3 mb-2" style=" height:15rem; background-color:#FFCD39;">
+        <div class="text">
+            @*<h5 class="card-title">Our Mission</h5>*@
+            <label style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:30px;
+            color:black;text-align:center;padding-top:20px; padding-left:500px;"><b>Our Mission</b></label> <br />
+
+
+            <p class="card-text" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align:center;padding-left:20px;">
+                <i>
+                "Our mission is to use technology to make all education and skill
+                    enhancement absolutely free and available to anybody, everywhere”
+                </i>
+            </p>
+           
+        </div>
+    </div>
 
     <style>
     .card {
@@ -94,4 +156,50 @@
         .card button:hover {
             opacity: 0.7;
         }
-    </style>
+
+        .searchbar {
+            margin-bottom: auto;
+            margin-top: auto;
+            height: 60px;
+            background-color: #353b48;
+            border-radius: 30px;
+            padding: 10px;
+        }
+
+        .search_input {
+            color: white;
+            border: 0;
+            outline: 0;
+            background: none;
+            width: 0;
+            caret-color: transparent;
+            line-height: 40px;
+            transition: width 0.4s linear;
+        }
+
+        .searchbar:hover > .search_input {
+            padding: 0 10px;
+            width: 450px;
+            caret-color: red;
+            transition: width 0.4s linear;
+        }
+
+        .searchbar:hover > .search_icon {
+            background: white;
+            color: #e74c3c;
+        }
+
+        .search_icon {
+            height: 40px;
+            width: 40px;
+            float: right;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+        }
+    </style>    
+</div>
+

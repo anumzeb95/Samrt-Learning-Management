@@ -16,12 +16,8 @@ namespace SLM.Bussiness.DataServices
         {
             _repository = repository;
         }
-    }
 
-        
-
-
-        public List<CoursesModel> Search(string searchTerm)
+        List<CoursesModel> ICourseService.Search(string searchTerm)
         {
             searchTerm = searchTerm.Trim().ToLower();
             var allCourses = _repository.Get(x => x.Name.ToLower().Contains(searchTerm) ||
@@ -37,6 +33,9 @@ namespace SLM.Bussiness.DataServices
 
             return CoursesModel;
         }
+    }
+
+       
 
 
       
@@ -54,5 +53,5 @@ namespace SLM.Bussiness.DataServices
 
         //}
 
-    }
+    
 }

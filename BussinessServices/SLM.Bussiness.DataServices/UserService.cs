@@ -10,11 +10,12 @@ using SLM.WebApp.Models;
 using System.Security.Cryptography.X509Certificates;
 
 namespace SLM.Bussiness.DataServices
-{
-    public class LectureService : GenericService<LectureModel, Lecture>, ILectureService
+{ 
+        public class UserService: GenericService<UserModel, User> , IUserService
     {
+    
         private readonly IRepository<Lecture> _repository;
-        public LectureService(IRepository<Lecture> repository, IMapper mapper) : base(repository, mapper)
+        public UserService(IRepository<Lecture> repository, IMapper mapper) : base(repository, mapper)
         {
             _repository = repository;
         }

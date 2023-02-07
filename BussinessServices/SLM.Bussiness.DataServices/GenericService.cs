@@ -11,6 +11,8 @@ namespace SLM.Bussiness.DataServices
     {
         private readonly IRepository<TEntity> _repository;
         private readonly IMapper _mapper;
+        private IRepository<Lecture> repository;
+        private IMapper mapper;
 
         public GenericService(IRepository<TEntity> repository, IMapper mapper)
         {
@@ -18,10 +20,16 @@ namespace SLM.Bussiness.DataServices
             _mapper = mapper;
         }
 
+        public GenericService(IRepository<Lecture> repository, IMapper mapper)
+        {
+            this.repository = repository;
+            this.mapper = mapper;
+        }
+
 
 
         //add data in databse we need to convert it into entity
-         public List<TModel> GetAll()
+        public List<TModel> GetAll()
         {
             var allEntity = _repository.GetAll();
             var allModel = _mapper.Map<List<TModel>>(allEntity);

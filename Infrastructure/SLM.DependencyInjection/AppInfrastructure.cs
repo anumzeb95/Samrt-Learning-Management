@@ -30,7 +30,12 @@ namespace SLM.DependencyInjection
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie((CookieOptions)=>
             {
                 CookieOptions.LoginPath = "/Authentication/Login";
+                CookieOptions.Cookie = new CookieBuilder
+                {
+                    Name = "SmartLearningManagementCookie"
+                };
             });
+
             //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie((CookieOptions) =>
             //{
             //    CookieOptions.LogoutPath = "/Authentication.Logout";

@@ -21,7 +21,7 @@ namespace SLM.WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(UserModel model)
         {
-            //logic to compare user from database or any other user provider
+            //here our logic is  to compare user from database or any other user provider
             try
             {
                 //creating list of claims 

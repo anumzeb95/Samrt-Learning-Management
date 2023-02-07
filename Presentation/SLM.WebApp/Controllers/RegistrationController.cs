@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SLM.Bussiness.Interfaces;
 using SLM.WebApp.Models;
 
 namespace SLM.WebApp.Controllers
@@ -8,7 +9,13 @@ namespace SLM.WebApp.Controllers
    
     public class RegistrationController : Controller
     {
-       
+        private readonly IUserService _userService;
+
+        public RegistrationController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
 
 
         // GET: RegistrationController

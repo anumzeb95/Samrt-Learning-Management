@@ -14,6 +14,7 @@ namespace SLM.Data
         //all entities from databse as dbsets
         public DbSet<Courses>Courses { get; set; }
         public DbSet<Category> Leacture { get; set; }
+        public DbSet<Category> User { get; set; }
 
 
 

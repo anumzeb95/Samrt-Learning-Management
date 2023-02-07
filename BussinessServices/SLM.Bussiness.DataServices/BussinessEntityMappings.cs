@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SLM.Bussiness.Models;
 using SLM.Data.Models;
+using SLM.WebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace SLM.Bussiness.DataServices
             //convert easily from product to model and viceversa
             CreateMap<CoursesModel, Courses>().ReverseMap();
             CreateMap<LectureModel, Lecture>().ReverseMap();
+            CreateMap<UserModel, User>().ReverseMap();
 
         }
 

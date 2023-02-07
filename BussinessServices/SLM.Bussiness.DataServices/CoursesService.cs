@@ -12,10 +12,12 @@ namespace SLM.Bussiness.DataServices
     public class CoursesService : GenericService<CoursesModel, Courses>, ICourseService
     {
         private readonly IRepository<Courses> _repository;
-         public CoursesService(IRepository<Courses> repository, IMapper mapper) : base(repository, mapper) 
-         {
+        public CoursesService(IRepository<Courses> repository, IMapper mapper) : base(repository, mapper)
+        {
             _repository = repository;
-         }
+        }
+    }
+
         
 
 

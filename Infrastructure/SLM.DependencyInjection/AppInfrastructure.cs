@@ -44,6 +44,7 @@ namespace SLM.DependencyInjection
             //all of the custom configuration
             services.AddScoped<ICourseService, CoursesService>();
             services.AddScoped<ILectureService, LectureService>();
+            services.AddScoped<ICourseService, UserService>();
 
             //automapper configuration
             services.AddAutoMapper(typeof(BussinessEntityMappings));

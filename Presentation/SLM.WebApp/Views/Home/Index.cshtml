@@ -66,10 +66,13 @@ color:white;text-align:center;padding-top:300px;"><b>Smart Learning With Free On
                     future anytime from anywhere</i>
             </p>
                @*<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>*@
-            <button asp-action="Register" class="btn btn-primary btn-align-left btn-lg btn-rounded"
-                    asp-controller="Courses" asp-action="Index" height="30px" width="40px">
+           @* <a asp-action="Register" class="btn btn-primary btn-align-left btn-lg btn-rounded"
+                    asp-controller="Courses" asp-action="Index" height="30px" width="40px" href="/Registration">
                 Register Yourself
-            </button>
+            </a>*@
+                <a class="btn btn-primary btn-sm  active" Text="Submit" height="30px" width="40px" OnClick="btnSubmit_Click" href="/Registration">
+                    Register Yourself
+                </a>
         </div>
     </div>
 </div>
@@ -91,11 +94,8 @@ color:white;text-align:center;padding-top:300px;"><b>Smart Learning With Free On
                     <a class="nav-link text-white" asp-area="" asp-controller="Courses" asp-action="Index">Courses List</a>
                 </button>*@
 
-           <a  class="link-info"> <button asp-action="Index" class="btn btn-primary btn-align-left btn-lg btn-rounded"
-                            asp-controller="Courses" asp-action="Index" href="Courses/Index">
-                       @* @Html.ActionLink("Courses", "Index", "Courses") *@
-                Courses List
-                    </button>
+                <a class="btn btn-primary btn-sm  active" Text="Submit" height="30px" width="40px" OnClick="btnSubmit_Click" href="/Courses/Index">
+                    Courses List
                 </a>
            
         </div>

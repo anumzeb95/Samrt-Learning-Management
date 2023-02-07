@@ -4,35 +4,37 @@
 @{
 }
 <br />
-<h5>Register Your Self!</h5>
+<h3 style="text-align:left; text-justify:auto; font-size:28px;"><b>SignUp Here!</b></h3> <br />
 <form class="row">
 
     <div class="col-md-6">
-        <img src="~/images/main.png" class="card-img-top" style="padding-top:5px; width=10px; height=355px;"  alt="...">
+        <img src="~/images/signup.png" class="card-img-top" style="padding-top:5px; width=10px; height=355px;"  alt="...">
     </div>
 
 
   <div class="col-md-6"> 
 <form class="row g-3">
-    <div class="col-12">
-        <label for="Name" class="form-label">Name</label>
+    <div class="col-6">
+                <label for="Name" class="form-label"><b>Name</b></label>
         <input type="text" class="form-control" id="Name" placeholder="Joe">
     </div>
     <div class="col-md-6">
-        <label for="Email4" class="form-label">Email</label>
+                <label for="Email4" class="form-label"><b>Email</b></label>
         <input type="email" class="form-control" id="Email4">
     </div>
     <div class="col-md-6">
-        <label for="Password4" class="form-label">Password</label>
+                <label for="Password4" class="form-label"><b>Password</b></label>
         <input type="password" class="form-control" id="Password4">
     </div>
 
     <div class="col-md-6">
-        <label for="DOB" class="form-label">Date Of Birth</label>
+        <label for="DOB" class="form-label"><b>Date Of Birth</b></label>
         <input type="date" class="form-control" id="DOB">
     </div>
+
+
     <div class="col-md-6">
-        <label for="Gender" class="form-label">Gender</label>
+                <label for="Gender" class="form-label"><b>Gender</b></label>
         <div class="form-check">
         <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
         <label class="form-check-label" for="gridRadios1">
@@ -47,24 +49,38 @@
       </div>
     </div>
 
-     <div class="col-md-6">
-        <label for="Designation" class="form-label">Desigation</label>
+    <div class="col-md-6">
+                <label for="Designation" class="form-label"><b>Desigation</b></label>
         <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" onclick="handleChange(this);"
+                           value="1" checked>
         <label class="form-check-label" for="gridRadios1">
          Teacher
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                    <input class="form-check-input" type="radio" name="gridRadios" onclick="handleChange(this);"
+                           id="gridRadios2" value="2">
         <label class="form-check-label" for="gridRadios2">
           Student
         </label>
       </div>
     </div>
     
-    <div class="col-md-6">
-        <label for="Course" class="form-label">Course</label>
+    <script>
+                function handleChange(myRadio) {
+                    const coursesDiv = document.getElementById('coursesDiv');
+                    if (myRadio.value == "2") {
+                        coursesDiv.style.display = 'block';
+                    } else {
+                        coursesDiv.style.display = 'none';
+                    }
+                }
+
+    </script>
+    
+    <div id="coursesDiv" class="col-md-6" style="display:none;">
+                <label for="Course" class="form-label"><b>Course</b></label>
         <select id="Course" class="form-select">
             <option selected>Choose...</option>
             <option>Dotnet Web Development</option>
@@ -73,27 +89,28 @@
         </select>
     </div>
 
+     <div class="col-md-6">
+                <label for="Contact" class="form-label"><b>Contact</b></label>
+                <input type="text" class="form-control" id="Contact">
+     </div>
+
     <div class="col-12">
-        <label for="Address" class="form-label">Address</label>
+                <label for="Address" class="form-label"><b>Address</b></label>
         <input type="text" class="form-control" id="Address" placeholder="1234 Main St">
     </div>
     
-    <div class="col-md-6">
-        <label for="Contact" class="form-label">Contact</label>
-        <input type="text" class="form-control" id="Contact">
-    </div>
-    
+
     <div class="col-12">
         <div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck">
             <label class="form-check-label" for="gridCheck">
-                Check me out
+                <b>Check me out</b>
             </label>
         </div>
     </div>
-    <div class="col-12">
-        <button type="submit" class="btn btn-primary">Sign in</button>
-    </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
 </form>
 
  </div>

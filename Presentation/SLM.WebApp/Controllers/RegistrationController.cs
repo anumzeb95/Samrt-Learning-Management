@@ -6,8 +6,9 @@ namespace SLM.WebApp.Controllers
     public class RegistrationController : Controller
     {
         // GET: RegistrationController
-        public ActionResult Register()
+        public ActionResult Index()
         {
+
             return View();
         }
 
@@ -26,7 +27,7 @@ namespace SLM.WebApp.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Register));
+                return RedirectToAction(nameof(Index));
             }
             catch
             {

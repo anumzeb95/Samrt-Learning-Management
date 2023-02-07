@@ -19,22 +19,24 @@ namespace SLM.WebApp.Controllers
         // GET: CoursesController
         public ActionResult Index(string? Search)
         {
-
+            
             List<CoursesModel> courses;
 
             if (Search == null)
             {
-              courses = _coursesService.GetAll();
+                courses = _coursesService.GetAll();
             }
             else
             {
                 courses = _coursesService.Search(Search);
             }
 
-          
-           
+
+
             return View(courses);
         }
+
+        
 
         // GET: CoursesController/Details/5
         public ActionResult Details(int Id)

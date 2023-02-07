@@ -92,7 +92,8 @@ color:white;text-align:center;padding-top:300px;"><b>Smart Learning With Free On
                 </button>*@
 
            <a  class="link-info"> <button asp-action="Index" class="btn btn-primary btn-align-left btn-lg btn-rounded"
-                    asp-controller="Courses" asp-action="Index" >
+                            asp-controller="Courses" asp-action="Index" href="Courses/Index">
+                       @* @Html.ActionLink("Courses", "Index", "Courses") *@
                 Courses List
                     </button>
                 </a>

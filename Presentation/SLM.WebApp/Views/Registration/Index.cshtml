@@ -52,25 +52,25 @@
     <div class="col-md-6">
                 <label for="Designation" class="form-label"><b>Desigation</b></label>
         <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" onclick="handleChange(this);"
+                    <input class="form-check-input" type="checkbox" name="gridcheck" id="gridcheck1" onclick="handleChange(this);"
                            value="1" checked>
-        <label class="form-check-label" for="gridRadios1">
+        <label class="form-check-label" for="gridcheck1">
          Teacher
         </label>
       </div>
       <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" onclick="handleChange(this);"
-                           id="gridRadios2" value="2">
-        <label class="form-check-label" for="gridRadios2">
+                    <input class="form-check-input" type="checkbox" name="gridcheck" onclick="handleChange(this);"
+                           id="gridcheck2" value="2">
+        <label class="form-check-label" for="gridcheck2">
           Student
         </label>
       </div>
     </div>
     
     <script>
-                function handleChange(myRadio) {
+                function handleChange(mycheck) {
                     const coursesDiv = document.getElementById('coursesDiv');
-                    if (myRadio.value == "2") {
+                    if (mycheck.value == "2") {
                         coursesDiv.style.display = 'block';
                     } else {
                         coursesDiv.style.display = 'none';

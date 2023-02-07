@@ -1,10 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SLM.WebApp.Models;
 
 namespace SLM.WebApp.Controllers
 {
+   
     public class RegistrationController : Controller
     {
+       
+
+
         // GET: RegistrationController
         public ActionResult Index()
         {
@@ -12,7 +18,9 @@ namespace SLM.WebApp.Controllers
             return View();
         }
 
-      
+
+
+
 
         // GET: RegistrationController/Create
         public ActionResult Create()

@@ -5,9 +5,11 @@ using SLM.Bussiness.Interfaces;
 using System.IO;
 using SLM.Data.Models;
 using System.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SLM.WebApp.Controllers
 {
+    [Authorize]
     public class LectureController : Controller
     {
         private readonly ILectureService _lectureService;

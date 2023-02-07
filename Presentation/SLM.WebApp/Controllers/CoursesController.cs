@@ -1,10 +1,12 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SLM.Bussines.Interfaces;
 using SLM.Bussiness.Models;
 
 namespace SLM.WebApp.Controllers
 {
+
     public class CoursesController : Controller
     {
 

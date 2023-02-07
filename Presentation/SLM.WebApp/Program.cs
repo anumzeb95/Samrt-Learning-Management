@@ -1,5 +1,4 @@
-using Microsoft.EntityFrameworkCore;
-using SLM.Data;
+
 using SLM.DependencyInjection;
 
 namespace SLM.WebApp
@@ -33,7 +32,7 @@ namespace SLM.WebApp
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

@@ -8,7 +8,7 @@ namespace SLM.WebApp.Models
     {
         public User() 
         {
-            Users = new List<User>();
+           Coursess = new List<Courses>();
         }
         public int Id { get; set; }
 
@@ -41,6 +41,6 @@ namespace SLM.WebApp.Models
 
         public string Contact { get; set; } = String.Empty;
 
-        public ICollection<User> Users { get; set; }
+        public ICollection<Courses> Coursess { get; set; }
     }
 }

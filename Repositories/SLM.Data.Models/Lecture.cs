@@ -2,6 +2,7 @@
 using System.Web;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using SLM.Data.Models;
 
 namespace SLM.Data.Models
 {

@@ -1,6 +1,4 @@
-﻿using SLM.Bussiness.Interfaces;
-using SLM.Bussiness.Models;
-using SLM.WebApp.Models;
+﻿using SLM.Bussiness.Models;
 
 namespace SLM.Bussiness.Interfaces
 {

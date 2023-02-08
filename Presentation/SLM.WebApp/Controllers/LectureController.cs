@@ -12,9 +12,9 @@ namespace SLM.WebApp.Controllers
     [Authorize]
     public class LectureController : Controller
     {
-        private readonly IUserService _lectureService;
+        private readonly ILectureService _lectureService;
 
-        public LectureController (IUserService lectureService)
+        public LectureController (ILectureService lectureService)
         {
             _lectureService = lectureService;
         }

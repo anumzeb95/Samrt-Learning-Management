@@ -1,10 +1,15 @@
 ﻿using SLM.Data.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Reflection.Metadata;
 
 namespace SLM.WebApp.Models
 {
     public class User : BaseEntity
     {
+        public User() 
+        {
+            Users = new List<User>();
+        }
         public int Id { get; set; }
 
         public string Name { get; set; }= String.Empty;
@@ -36,5 +41,6 @@ namespace SLM.WebApp.Models
 
         public string Contact { get; set; } = String.Empty;
 
+        public ICollection<User> Users { get; set; }
     }
 }

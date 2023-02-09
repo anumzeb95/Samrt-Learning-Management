@@ -7,6 +7,10 @@ namespace SLM.Bussiness.Models
 {
     public class LectureModel
     {
+        public LectureModel()
+        {
+            Lectures = new List<LectureModel>();
+        }
         public int Id { get; set; }
         public string LectureName { get; set; }
 
@@ -14,10 +18,9 @@ namespace SLM.Bussiness.Models
 
         public string LectureURL { get;set; }
 
-        public IEnumerable<LectureModel> FileList { get; set; }
-
         public int CourseId { get; set; }
-        
+
+        public ICollection<LectureModel> Lectures { get; set; }
     }
 
 

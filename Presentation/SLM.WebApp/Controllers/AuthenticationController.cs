@@ -12,7 +12,13 @@ namespace SLM.WebApp.Controllers
  
     public class AuthenticationController : Controller
     {
-             
+        private readonly IUserService _userService;
+
+        public AuthenticationController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
         public IActionResult Login()
         {
             return View();

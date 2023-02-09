@@ -6,6 +6,8 @@ using System.IO;
 using SLM.Data.Models;
 using System.Data;
 using Microsoft.AspNetCore.Authorization;
+using SLM.Bussiness.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace SLM.WebApp.Controllers
 {
@@ -23,138 +25,101 @@ namespace SLM.WebApp.Controllers
 
         // GET: LectureController
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(LectureModel model)
         {
-            //var LectureModel = new LectureModel { LectureName = "DOT1" };
-            //_lectureService.Add(LectureModel);
-
-
-            //List<Lecture> list = new List<Lecture>();
-            //DataTable DbSet = Lecture();
-            //foreach (DataRow dr in DbSet.Rows)
-            //{
-            //    list.Add(new Lecture
-            //    {
-
-            //        Id = model.Id,
-            //        LectureName = model.LectureName,
-            //        LectureDescription = model.LectureDescription,
-            //        LectureURL = model.LectureURL,
-            //        CourseId = model.Id,
-
-            //    });
-            //}
-            //model.FileList = list;
-            //return View(model);
-
-            var models = _lectureService.GetAll();
-            return View();
+  
+           return View();
         }
 
         [HttpPost]
 
-        public ActionResult Index(IFormFile formFile)
+        public ActionResult Index(LectureModel model, IFormFile formFile)
 
         {
+            //List<LectureModel> lecture = new List<LectureModel>(); 
+            //var LectureModel = new LectureModel();
+            //_lectureService.Add(LectureModel);
+            
+            
+                List<LectureModel> lecture = new List<LectureModel>();
 
-            try
-
-            {
+                if (ModelState.IsValid)
+                {
+                             
 
                 string fileName = formFile.FileName;
+                    try
+                    {
+                        fileName = Path.GetFileName(fileName);
 
-                fileName = Path.GetFileName(fileName);
+                        string uploadpath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Lecture", fileName);
 
-                string uploadpath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Lecture", fileName);
+                        var stream = new FileStream(uploadpath, FileMode.Create);
 
-                var stream = new FileStream(uploadpath, FileMode.Create);
+                        formFile.CopyToAsync(stream);
 
-                formFile.CopyToAsync(stream);
+                        ViewBag.Message = "File uploaded successfully.";
+                        
+                    }
+                                                       
+                     catch
 
-                ViewBag.Message = "File uploaded successfully.";
+                    {
 
-            }
+                        ViewBag.Message = "Error while uploading the files.";
+                        return View();
+                    }
+                    lecture = _lectureService.GetAll();
+                }
 
-            catch
+                else
+                {
+                    return RedirectToAction(nameof(Index));
+                }
 
-            {
+               
+                return View(lecture);
+                //return View(lecture); 
+            
+           
+              //return RedirectToAction(nameof(Index));            
 
-                ViewBag.Message = "Error while uploading the files.";
-
-            }
-
-            return View();
-
+         
+           
+            //var models = _lectureService.GetAll();
+            //return View(models);
         }
 
-
-
-
-
-
-
-
-        // GET: LectureController/Create
-        public ActionResult Create()
+        // GET: CoursesController/Delete/5
+        public ActionResult Delete(int Id)
         {
-            return View();
+            _lectureService.Delete(Id);
+
+            return RedirectToAction(nameof(Index));
+
+
         }
 
-        // POST: LectureController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //List<Lecture> list = new List<Lecture>();
+        //DataTable DbSet = Lecture();
+        //foreach (DataRow dr in DbSet.Rows)
+        //{
+        //    list.Add(new Lecture
+        //    {
 
-        // GET: LectureController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+        //        Id = model.Id,
+        //        LectureName = model.LectureName,
+        //        LectureDescription = model.LectureDescription,
+        //        LectureURL = model.LectureURL,
+        //        CourseId = model.Id,
 
-        // POST: LectureController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //    });
+        //}
+        //model.FileList = list;
+        //return View(model);
 
-        // GET: LectureController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
 
-        // POST: LectureController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+
+
     }
 }

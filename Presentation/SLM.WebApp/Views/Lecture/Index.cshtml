@@ -1,32 +1,81 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<SLM.Bussiness.Models.LectureModel>
+
+
 @{
-}
-@{
-
-    ViewData["Title"] = "Upload  Page";
-
+    ViewData["Title"] = "Index";
 }
 
-@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    <h1>Lecture List</h1>
 
-{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
 
-    <div class="text-center">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LectureName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LectureDescription)
+                </th>
 
-        <h1 class="font-weight-bold">Upload File</h1>
+                <th>
+                    @Html.DisplayNameFor(model => model.CourseId )
+                </th>
 
-        <p style="color:red;font-weight:bold;">
+                <th>
+                    @Html.DisplayNameFor(model => model.LectureURL)
+                </th>
 
-            @ViewBag.Message
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LectureName)
+                    </td>
 
-        </p>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LectureDescription)
+                    </td>
 
-        <input type="file" name="formFile" />
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LectureURL)
+                        <div class="text-center">
 
-        <input type="submit" value="Upload" />
+                            <h1 class="font-weight-bold">Upload File</h1>
 
-    </div>
+                            <p style="color:red;font-weight:bold;">
 
-}
+                                @ViewBag.Message
+
+                            </p>
+
+                            <input type="file" name="formFile" />
+
+                            <input type="submit" value="Upload" />
+
+                        </div>
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { Id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { Id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { Id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+  

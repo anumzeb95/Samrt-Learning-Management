@@ -49,14 +49,7 @@ namespace SLM.Bussiness.DataServices
         {
             var allEntity = _repository.GetAll();
             var allModel = _mapper.Map<List<TModel>>(allEntity);
-            //_repository.Get(allModel);
-
-            //part:8 , 21:55
-            //var entity = _repository.Get(x => x.Id == Id).FirstOrDefault();
-            //var entity = _mapper.Map<TEntity>(Id);
-            //return entity;
-            //check
-            //_repository.Get(entity);
+            
         }
 
         public void Update(TModel model)

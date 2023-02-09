@@ -12,7 +12,7 @@ namespace SLM.WebApp.Controllers
         }
 
         // GET: AccountController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Profile()
         {
             return View();
         }

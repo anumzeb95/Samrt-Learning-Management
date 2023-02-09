@@ -2,7 +2,7 @@
 {
     public class Courses : BaseEntity
     {
-        public Courses() 
+        public Courses()
         {
             Lectures = new List<Lecture>();
         }
@@ -14,7 +14,10 @@
 
         public string Description { get; set; } = string.Empty;
 
-        public ICollection<Lecture> Lectures { get; set; }  
+        public ICollection<Lecture> Lectures { get; set; }
+
+        //public int UserId { get; set; }
+        //public User User { get; set; }
 
     }
 }

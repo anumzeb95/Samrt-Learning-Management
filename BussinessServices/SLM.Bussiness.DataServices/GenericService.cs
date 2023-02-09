@@ -44,7 +44,7 @@ namespace SLM.Bussiness.DataServices
             _repository.Save(entity);
         }
 
-         public void Details(int Id)
+        public void Details(int Id)
         //public List<TModel> Details(int Id)
         {
             var allEntity = _repository.GetAll();
@@ -66,15 +66,15 @@ namespace SLM.Bussiness.DataServices
         }
         public void Delete(int Id)
         {
-            var entity = _repository.Get(x=> x.Id == Id).FirstOrDefault();
+            var entity = _repository.Get(x => x.Id == Id).FirstOrDefault();
             if (entity != null)
             {
                 _repository.Delete(entity);
             }
         }
 
-       
-       
-       
+
+
+
     }
 }

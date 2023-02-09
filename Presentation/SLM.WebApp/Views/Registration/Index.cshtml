@@ -1,76 +1,95 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model SLM.Bussiness.Models.UserModel
 @{
+    ViewData["Title"] = "Index";
 }
+
+
 <br />
 <h3 style="text-align:left; text-justify:auto; font-size:28px;"><b>SignUp Here!</b></h3> <br />
-<form class="row">
+<div class="row">
 
     <div class="col-md-6">
         <img src="~/images/signup.png" class="card-img-top" style="padding-top:5px; width=10px; height=355px;"  alt="...">
     </div>
-
-
-  <div class="col-md-6"> 
-<form class="row g-3">
-    <div class="col-6">
-                <label for="Name" class="form-label"><b>Name</b></label>
-        <input type="text" class="form-control" id="Name" placeholder="Joe">
-    </div>
+    <br />
+    <br />
     <div class="col-md-6">
-                <label for="Email4" class="form-label"><b>Email</b></label>
-        <input type="email" class="form-control" id="Email4">
-    </div>
-    <div class="col-md-6">
-                <label for="Password4" class="form-label"><b>Password</b></label>
-        <input type="password" class="form-control" id="Password4">
-    </div>
+    <form method="post" asp-action="Index" >
+
+     <div class="col-md-6"> 
+       <div class="row g-3">
+
+             <div class="col-6">
+                    <label asp-for="Name" class="control-label"><b>Name</b></label>
+                    <input type="text" class="form-control" asp-for="Name" id="Name" placeholder="Joe">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+             </div>
+
+           <div class="col-md-6">
+
+                    <label asp-for="Email" class="control-label"><b>Email</b></label>
+                    <input type="text" class="form-control" asp-for="Email" id="Email" placeholder="abc@globalmail">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+           </div>
+
+
+            <div class="col-md-6">
+                    <label asp-for="Password" class="control-label"><b>Password</b></label>
+                    <input type="password" class="form-control" asp-for="Password" id="Password" >
+                    <span asp-validation-for="Password" class="form-control-danger"></span>
+            </div>
+              
+
+            <div class="col-md-6">
+                    <label asp-for="DOB" class="control-label"><b>Date Of Birth</b></label>
+                    <input type="date" class="form-control" asp-for="DOB" id="DOB" placeholder="Joe">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+      
+            </div>
+
+
+          <div class="col-md-6">
+                    <label asp-for="Gender" class="control-label"><b>Gender</b></label>
+               <div class="form-check">
+                    <input class="form-check-input" type="radio" asp-for="Gender" name="Gender" id="Gender" value="Male" checked>
+                    <label asp-for="Gender" class="form-check-label">
+                     Male
+                    </label>
+               </div>
+
+              <div class="form-check">
+                        <input class="form-check-input" asp-for="Gender" type="radio" name="Gender" id="Gender" value="Female">
+                        <label asp-for="Gender" class="form-check-label">
+                        Female
+                        </label>
+              </div>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+          </div>
+                
 
     <div class="col-md-6">
-        <label for="DOB" class="form-label"><b>Date Of Birth</b></label>
-        <input type="date" class="form-control" id="DOB">
-    </div>
-
-
-    <div class="col-md-6">
-                <label for="Gender" class="form-label"><b>Gender</b></label>
+                    <label asp-for="Designation" class="form-label"><b>Desigation</b></label>
         <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-        <label class="form-check-label" for="gridRadios1">
-          Male
-        </label>
+                        <input class="form-check-input" type="radio" asp-for="Designation" name="Designation" id="Designation" onclick="handleChange(this);"
+                           value="Teacher" checked>
+                        <label class="form-check-label" asp-for="Designation">
+                               Teacher
+                        </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-        <label class="form-check-label" for="gridRadios2">
-          Female
-        </label>
+                        <input class="form-check-input" type="radio" asp-for="Designation" name="Designation" id="Designation" onclick="handleChange(this);"
+                           value="Student">
+                        <label class="form-check-label" asp-for="Designation">
+                         Student
+                        </label>
       </div>
-    </div>
-
-    <div class="col-md-6">
-                <label for="Designation" class="form-label"><b>Desigation</b></label>
-        <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="gridcheck" id="gridcheck1" onclick="handleChange(this);"
-                           value="1" checked>
-        <label class="form-check-label" for="gridcheck1">
-         Teacher
-        </label>
-      </div>
-      <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="gridcheck" onclick="handleChange(this);"
-                           id="gridcheck2" value="2">
-        <label class="form-check-label" for="gridcheck2">
-          Student
-        </label>
-      </div>
-    </div>
+                    <span asp-validation-for="Designation" class="text-danger"></span>
+                </div>
     
     <script>
                 function handleChange(mycheck) {
                     const coursesDiv = document.getElementById('coursesDiv');
-                    if (mycheck.value == "2") {
+                    if (mycheck.value == "Student") {
                         coursesDiv.style.display = 'block';
                     } else {
                         coursesDiv.style.display = 'none';
@@ -80,39 +99,45 @@
     </script>
     
     <div id="coursesDiv" class="col-md-6" style="display:none;">
-                <label for="Course" class="form-label"><b>Course</b></label>
-        <select id="Course" class="form-select">
-            <option selected>Choose...</option>
-            <option>Dotnet Web Development</option>
-            <option>Software Quality Assurance</option>
-            <option>Web Designing</option>
-        </select>
-    </div>
+                    <label asp-for="Course" class="form-label"><b>Course</b></label>
+            <select asp-for="Course" id="Course" class="form-select">
+                      <option selected>Choose...</option>
+                      <option>Dotnet Web Development</option>
+                      <option>Software Quality Assurance</option>
+                      <option>Web Designing</option>
+            </select>
+                    <span asp-validation-for="Course" class="text-danger"></span>
+        </div>
 
      <div class="col-md-6">
-                <label for="Contact" class="form-label"><b>Contact</b></label>
-                <input type="text" class="form-control" id="Contact">
+                    <label asp-for="Contact" class="control-label"><b>Contact</b></label>
+                    <input asp-for="Contact" type="text" class="form-control" id="Contact">
+                    <span asp-validation-for="Contact" class="text-danger"></span>
      </div>
 
     <div class="col-12">
-                <label for="Address" class="form-label"><b>Address</b></label>
-        <input type="text" class="form-control" id="Address" placeholder="1234 Main St">
+                    <label asp-for="Address" class="control-label"><b>Address</b></label>
+                    <input type="text" asp-for="Address" class="form-control" id="Address" placeholder="1234 Main St">
+                    <span asp-validation-for="Address" class="text-danger"></span>
     </div>
     <br/>
 
     <div class="col-12">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
+            <input class="form-check-input" asp-for="RememberMe" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" asp-for="RememberMe">
                 <b>Check me out</b>
             </label>
+                        <span asp-validation-for="RememberMe" class="text-danger"></span>
         </div>
     </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" class="btn btn-primary">Sign in</button>
+            <div class="form-group justify-content-md-end">
+                    <input type="submit" value="Create" OnClick="btnSubmit_Click" class="btn btn-primary" href="/Account/Dashboard" />
             </div>
-</form>
+</div>
 
  </div>
-
- </form>
+   
+    </form>
+   </div>
+</div>

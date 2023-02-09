@@ -1,57 +1,61 @@
-﻿using Azure.Identity;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SLM.Bussines.Interfaces;
-using SLM.WebApp.Models;
+using SLM.Bussiness.Models;
 using System.Security.Claims;
 
 namespace SLM.WebApp.Controllers
 {
- 
-    public class AuthenticationController : Controller
-    {
-        private readonly IUserService _userService;
 
-        public AuthenticationController(IUserService userService)
-        {
-            _userService = userService;
-        }
+	public class AuthenticationController : Controller
+	{
+		private readonly IUserService _userService;
 
-        public IActionResult Login()
-        {
-            return View();
-        }
+		public AuthenticationController(IUserService userService)
+		{
+			_userService = userService;
+		}
 
-        [HttpPost]
-        public async Task<IActionResult> Login(UserModel model)
-        {
-            //here our logic is  to compare user from database or any other user provider
-            try
-            {
-                //creating list of claims 
-                var claims = new List<Claim>
-                {
-                new Claim (ClaimTypes.Email, model.Email),
-                };
+		public IActionResult Login()
+		{
+			return View();
+		}
 
-                //claims identity
-                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+		[HttpPost]
+		public async Task<IActionResult> Login(UserModel model)
+		{
+			//here our logic is  to compare user from database or any other user provider
+			try
+			{
+				//creating list of claims 
+				var claims = new List<Claim>
+				{
+				new Claim (ClaimTypes.Email, model.Email),
+				};
 
-                //creating claims principal object to pass to the sign in method
-                var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+				//claims identity
+				var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                //signing in
-                await HttpContext.SignInAsync(claimsPrincipal);
+				//creating claims principal object to pass to the sign in method
+				var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
-                return RedirectToAction("Index", "Home");
-            }
-            catch (Exception ex) 
-            {
-                return View (model);
-            }
-            
-        }
-    }
+				//signing in
+				await HttpContext.SignInAsync(claimsPrincipal);
+
+				return RedirectToAction("Dashboard", "Account");
+			}
+			catch (Exception ex)
+			{
+				return View(model);
+			}
+
+		}
+
+		public async Task<IActionResult> Logout()
+		{
+			await this.HttpContext.SignOutAsync();
+			return RedirectToAction("Index", "Home");
+		}
+	}
 }

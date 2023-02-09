@@ -1,4 +1,4 @@
-﻿@model SLM.WebApp.Models.UserModel
+﻿@model SLM.Bussiness.Models.UserModel
 
 @{
     ViewData["Title"] = "Login";
@@ -20,28 +20,23 @@
            <br/>
            <br/>
            <br/>
-                <div class="form-group">
-                    <label asp-for="Designation" class="control-label"></label>
-
+                <div class="col-md-6">
+                    <label asp-for="Designation" class="form-label"><b>Desigation</b></label>
                     <div class="form-check">
-                        <input asp-for="Designation" class="form-check-input" type="checkbox" name="gridcheckbox" id="gridcheckbox1" 
-                        onclick="handleChange(this);"
-                               value="1" checked>
-                        <span asp-validation-for="Designation" class="text-danger"></span>
-                        <label class="form-check-label" for="gridcheckbox1">
+                        <input class="form-check-input" type="radio" asp-for="Designation" name="Designation" id="Designation" onclick="handleChange(this);"
+                               value="Teacher" checked>
+                        <label class="form-check-label" asp-for="Designation">
                             Teacher
                         </label>
                     </div>
                     <div class="form-check">
-                        <input asp-for="Designation" class="form-check-input" type="checkbox" name="gridcheckbox" id="gridcheckbox2" 
-                        onclick="handleChange(this);"
-                               value="2">
-                        <span asp-validation-for="Designation" class="text-danger"></span>
-                        <label class="form-check-label" for="gridcheckbox2">
+                        <input class="form-check-input" type="radio" asp-for="Designation" name="Designation" id="Designation" onclick="handleChange(this);"
+                               value="Student">
+                        <label class="form-check-label" asp-for="Designation">
                             Student
                         </label>
                     </div>
-                   
+                    <span asp-validation-for="Designation" class="text-danger"></span>
                 </div>
 
                 <script>
@@ -63,29 +58,35 @@
 <br />
 <br /><br />
 
-            <div class="form-group">
-                <label asp-for="Email" for="emailDiv" class="control-label"></label>
-                    <input asp-for="Email" class="form-control" />
-                    <span asp-validation-for="Email" class="text-danger" id="emailDiv"></span>
-            </div>
+                <div class="col-md-6">
 
-            <div class="form-group">
-                    <label asp-for="Password" class="control-label" for="pwdDiv"></label>
-                <input asp-for="Password" class="form-control" />
-                    <span asp-validation-for="Password" class="text-danger" id="pwdDiv"></span>
-            </div>
+                    <label asp-for="Email" class="control-label"><b>Email</b></label>
+                    <input type="text" class="form-control" asp-for="Email" id="Email" placeholder="abc@globalmail">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+
+                <div class="col-md-6">
+                    <label asp-for="Password" class="control-label"><b>Password</b></label>
+                    <input type="password" class="form-control" asp-for="Password" id="Password">
+                    <span asp-validation-for="Password" class="form-control-danger"></span>
+                </div>
+
+
+                <br />
            
-        
-            <br />
-           
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
-                </label>
-            </div>
+           <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" asp-for="RememberMe" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" asp-for="RememberMe">
+                <b>Check me out</b>
+            </label>
+                        <span asp-validation-for="RememberMe" class="text-danger"></span>
+        </div>
+    </div>
                 
             <div class="form-group gap-2 d-md-flex justify-content-md-end">
-                <input type="submit" value="Login" class="btn btn-primary" />
+                    <input type="submit" value="Login" class="btn btn-primary" href="~/Account/Dashboard" />
             </div>
         </form>
     </div>

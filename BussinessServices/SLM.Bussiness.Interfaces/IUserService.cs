@@ -1,11 +1,11 @@
 ﻿using SLM.Bussiness.Interfaces;
-using SLM.WebApp.Models;
+using SLM.Bussiness.Models;
 
 namespace SLM.Bussines.Interfaces
 {
-         public interface IUserService : IGenericService<UserModel>
-    {
-        //public List<CoursesModel> Search(string searchTerm);
+	public interface IUserService : IGenericService<UserModel>
+	{
+		//public List<CoursesModel> Search(string searchTerm);
 
-    }
+	}
 }

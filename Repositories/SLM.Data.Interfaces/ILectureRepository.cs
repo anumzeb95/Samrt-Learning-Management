@@ -3,10 +3,10 @@
 
 namespace SLM.Data.Interfaces
 {
-    //creating 1 repository per table
-    public interface ILectureRepository : IRepository<Lecture>
-    {
+	//creating 1 repository per table
+	public interface ILectureRepository : IRepository<Lecture>
+	{
 
 
-    }
+	}
 }

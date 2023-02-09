@@ -5,51 +5,50 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SLM.Bussines.Interfaces;
 using SLM.Bussiness.DataServices;
-using SLM.Bussiness.Interfaces;
 using SLM.Data;
 using SLM.Data.Interfaces;
 
 namespace SLM.DependencyInjection
 {
-    public static class AppInfrastructure
-    {
-        public static void AppDISetup (this IServiceCollection services, IConfiguration configuration )
-        {
-           
-
-            //Configure entity framework
-            services.AddDbContext<SLManagementDbContext>(
-            options => options.
-            UseSqlServer(configuration.GetConnectionString("DbConnection")));
+	public static class AppInfrastructure
+	{
+		public static void AppDISetup(this IServiceCollection services, IConfiguration configuration)
+		{
 
 
-            //repositories configuration
-            services.AddScoped(typeof (IRepository<>), typeof(Repository<>));
+			//Configure entity framework
+			services.AddDbContext<SLManagementDbContext>(
+			options => options.
+			UseSqlServer(configuration.GetConnectionString("DbConnection")));
 
-            //setting configuration for authentication
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie((CookieOptions)=>
-            {
-                CookieOptions.LoginPath = "/Authentication/Login";
-                CookieOptions.Cookie = new CookieBuilder
-                {
-                    Name = "SmartLearningManagementCookie"
-                };
-            });
 
-            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie((CookieOptions) =>
-            //{
-            //    CookieOptions.LogoutPath = "/Authentication.Logout";
-            //});
+			//repositories configuration
+			services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
-            //all of the custom configuration
-            services.AddScoped<ICourseService, CoursesService>();
-            services.AddScoped<Bussiness.Interfaces.ILectureService, LectureService>();
-            services.AddScoped<Bussines.Interfaces.IUserService, UserService>();
-            
+			//setting configuration for authentication
+			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie((CookieOptions) =>
+			{
+				CookieOptions.LoginPath = "/Authentication/Login";
+				CookieOptions.Cookie = new CookieBuilder
+				{
+					Name = "SmartLearningManagementCookie"
+				};
+			});
 
-            //automapper configuration
-            services.AddAutoMapper(typeof(BussinessEntityMappings));
-        }
+			//services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie((CookieOptions) =>
+			//{
+			//    CookieOptions.LogoutPath = "/Authentication.Logout";
+			//});
 
-    }
+			//all of the custom configuration
+			services.AddScoped<ICourseService, CoursesService>();
+			services.AddScoped<Bussiness.Interfaces.ILectureService, LectureService>();
+			services.AddScoped<Bussines.Interfaces.IUserService, UserService>();
+
+
+			//automapper configuration
+			services.AddAutoMapper(typeof(BussinessEntityMappings));
+		}
+
+	}
 }

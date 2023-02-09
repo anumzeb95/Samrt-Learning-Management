@@ -2,9 +2,9 @@
 
 namespace SLM.Bussiness.Interfaces
 {
-    public interface ILectureService : IGenericService<LectureModel>
-    {
+	public interface ILectureService : IGenericService<LectureModel>
+	{
 
 
-    }
+	}
 }

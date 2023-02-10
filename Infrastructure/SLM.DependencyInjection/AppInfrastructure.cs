@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SLM.Bussines.Interfaces;
 using SLM.Bussiness.DataServices;
+using SLM.Bussiness.Interfaces;
 using SLM.Data;
 using SLM.Data.Interfaces;
 
@@ -42,8 +43,8 @@ namespace SLM.DependencyInjection
 
 			//all of the custom configuration
 			services.AddScoped<ICourseService, CoursesService>();
-			services.AddScoped<Bussiness.Interfaces.ILectureService, LectureService>();
-			services.AddScoped<Bussines.Interfaces.IUserService, UserService>();
+			services.AddScoped<ILectureService, LectureService>();
+			services.AddScoped<IUserService, UserService>();
 
 
 			//automapper configuration

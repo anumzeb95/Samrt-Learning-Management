@@ -4,6 +4,7 @@ namespace SLM.Bussiness.Interfaces
 {
 	public interface ILectureService : IGenericService<LectureModel>
 	{
+		//List<LectureModel> FormFile (IFormFile formFile)
 
 
 	}

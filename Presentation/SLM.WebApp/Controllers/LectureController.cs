@@ -21,8 +21,10 @@ namespace SLM.WebApp.Controllers
 		[HttpGet]
 		public ActionResult Index(LectureModel model)
 		{
+			var LectureModel = new LectureModel { LectureName = "DOT1" };
 
-			return View();
+			var models = _lectureService.GetAll();
+			return View(models);
 		}
 
 		[HttpPost]

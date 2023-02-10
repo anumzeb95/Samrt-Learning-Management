@@ -1,7 +1,4 @@
-﻿
-
-
-namespace SLM.Bussiness.Interfaces
+﻿namespace SLM.Bussiness.Interfaces
 {
     public interface IGenericService<TModel>
     {

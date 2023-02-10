@@ -9,11 +9,11 @@ namespace SLM.Data.Models
 		[Key]
 		public int Id { get; set; }
 
-		//public DateTime CreatedOn   { get; set; }
-		//public DateTime UpdatedOn { get; set; }
+		public DateTime CreatedOn { get; set; }
+		public DateTime UpdatedOn { get; set; }
 
-		//public bool isActive { get; set;  } = true;
-		//public bool IsDeleted { get; set; }
+		public bool isActive { get; set; } = true;
+		public bool IsDeleted { get; set; }
 
 	}
 }

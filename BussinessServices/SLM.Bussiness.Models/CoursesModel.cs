@@ -4,7 +4,7 @@
     {
         public CoursesModel()
         {
-            Lectures = new List<LectureModel>();
+            Course = new List<CoursesModel>();
         }
         public int Id { get; set; }
 
@@ -18,6 +18,6 @@
 
         public string Description { get; set; } = string.Empty;
 
-        public ICollection<LectureModel> Lectures { get; set; }
+        public ICollection<CoursesModel> Course { get; set; }
     }
 }

@@ -1,7 +1,13 @@
-﻿namespace SLM.Bussiness.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace SLM.Bussiness.Models
 {
 	public class LectureModel
 	{
+        public LectureModel() 
+        {
+            Course = new CoursesModel();
+        }
      
         public int Id { get; set; }
 		public string LectureName { get; set; }
@@ -10,7 +16,10 @@
 
 		public string LectureURL { get; set; }
 
-		public int CourseId { get; set; }
+        public int CourseId { get; set; }
+        [ForeignKey("CourseId")]
+
+        public CoursesModel Course { get; set; }
 
     }
 

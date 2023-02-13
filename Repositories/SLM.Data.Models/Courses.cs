@@ -4,7 +4,7 @@
     {
         public Courses()
         {
-            Lectures = new List<Lecture>();
+            Course = new HashSet<Courses>();
         }
         public string Name { get; set; } = string.Empty;
 
@@ -14,10 +14,7 @@
 
         public string Description { get; set; } = string.Empty;
 
-        public ICollection<Lecture> Lectures { get; set; }
-
-        //public int UserId { get; set; }
-        //public User User { get; set; }
+        public ICollection<Courses> Course { get; set; }
 
     }
 }

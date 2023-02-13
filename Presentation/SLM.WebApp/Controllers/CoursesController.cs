@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SLM.Bussines.Interfaces;
 using SLM.Bussiness.Models;
 
@@ -39,6 +40,7 @@ namespace SLM.WebApp.Controllers
 
 
 		// GET: CoursesController/Details/5
+		
 		public ActionResult Details(int Id)
 		{
 			var course = _coursesService.GetAll().Where(x => x.Id == Id).FirstOrDefault();
@@ -70,6 +72,7 @@ namespace SLM.WebApp.Controllers
 		}
 
 		// GET: CoursesController/Create
+	
 		public ActionResult Create()
 		{
 			return View();
@@ -92,6 +95,7 @@ namespace SLM.WebApp.Controllers
 		}
 
 		// GET: CoursesController/Edit/5
+	
 		public ActionResult Edit(int id)
 		{
 			var course = _coursesService.GetAll().Where(x => x.Id == id).FirstOrDefault();
@@ -115,6 +119,7 @@ namespace SLM.WebApp.Controllers
 		}
 
 		// GET: CoursesController/Delete/5
+		//[Authorize]
 		public ActionResult Delete(int Id)
 		{
 			_coursesService.Delete(Id);

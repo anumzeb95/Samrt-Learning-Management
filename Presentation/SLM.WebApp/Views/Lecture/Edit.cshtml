@@ -1,0 +1,70 @@
+﻿@model SLM.Bussiness.Models.LectureModel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+
+<h4>Lecture:</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="Id" class="form-control" type="hidden" />
+
+            <div class="col-sm-2 position-relative">
+                <!-- Image upload -->
+
+                <a class="brand">
+                    <img class="rounded mx-auto d-block" src="~/images/dt.jpg"
+                         height="400px" width="800px" />
+                </a>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <label asp-for="LectureName" class="control-label"></label>
+                <input asp-for="LectureName" class="form-control" />
+                <span asp-validation-for="LectureName" class="text-danger"></span>
+
+                <label asp-for="LectureDescription" class="control-label"></label>
+                <input asp-for="LectureDescription" class="form-control" />
+                <span asp-validation-for="LectureDescription" class="text-danger"></span>
+
+                <label asp-for="LectureURL" class="control-label"></label>
+                <input asp-for="LectureURL" class="form-control" />
+                <span asp-validation-for="LectureURL" class="text-danger"></span>
+
+                <label asp-for="CourseId" class="control-label"></label>
+                <input asp-for="CourseId" class="form-control" />
+                <span asp-validation-for="CourseId" class="text-danger"></span>
+
+
+            </div><br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" href="/Lecture/Index" />
+            </div><br />
+            <div class="form-group">
+                <input type="submit" asp-controller="Lecture" asp-action="Index" value="Back" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+

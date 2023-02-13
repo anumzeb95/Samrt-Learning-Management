@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SLM.Bussiness.Interfaces;
 using SLM.Bussiness.Models;
@@ -18,11 +19,11 @@ namespace SLM.WebApp.Controllers
 
 
 		// GET: LectureController
+
 		[HttpGet]
 		public ActionResult Index(LectureModel model)
 		{
-			var LectureModel = new LectureModel { LectureName = "DOT1" };
-
+			
 			var models = _lectureService.GetAll();
 			return View(models);
 		}
@@ -86,36 +87,111 @@ namespace SLM.WebApp.Controllers
 			//return View(models);
 		}
 
-		// GET: CoursesController/Delete/5
-		public ActionResult Delete(int Id)
+        // GET: LectureController
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+
+
+        // POST: LectureController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(LectureModel model)
+        {
+            try
+            {
+                _lectureService.Add(model);
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
+        // GET: LectureController/Edit/5
+        public ActionResult Edit(int id)
+        {
+            var course = _lectureService.GetAll().Where(x => x.Id == id).FirstOrDefault();
+            return View(course);
+        }
+
+        // POST: lectureController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(LectureModel model)
+        {
+            try
+            {
+                _lectureService.Update(model); ;
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // GET: CoursesController/Delete/5
+        public ActionResult Delete(int Id)
 		{
-			_lectureService.Delete(Id);
+		
+		
 
-			return RedirectToAction(nameof(Index));
+            try
+            {
+                _lectureService.Delete(Id);
+                ViewBag.Message = "lecture delected successfully.";
+                return RedirectToAction(nameof(Index));
+            }
 
+            catch
 
-		}
-
-		//List<Lecture> list = new List<Lecture>();
-		//DataTable DbSet = Lecture();
-		//foreach (DataRow dr in DbSet.Rows)
-		//{
-		//    list.Add(new Lecture
-		//    {
-
-		//        Id = model.Id,
-		//        LectureName = model.LectureName,
-		//        LectureDescription = model.LectureDescription,
-		//        LectureURL = model.LectureURL,
-		//        CourseId = model.Id,
-
-		//    });
-		//}
-		//model.FileList = list;
-		//return View(model);
+            {
+                return View();
+            }
 
 
+        }
+
+        //List<Lecture> list = new List<Lecture>();
+        //DataTable DbSet = Lecture();
+        //foreach (DataRow dr in DbSet.Rows)
+        //{
+        //    list.Add(new Lecture
+        //    {
+
+        //        Id = model.Id,
+        //        LectureName = model.LectureName,
+        //        LectureDescription = model.LectureDescription,
+        //        LectureURL = model.LectureURL,
+        //        CourseId = model.Id,
+
+        //    });
+        //}
+        //model.FileList = list;
+        //return View(model);
 
 
-	}
+
+
+    }
 }

@@ -5,10 +5,10 @@ namespace SLM.Data.Models
 {
 	public class User : BaseEntity
 	{
-        //public User()
-        //{
-        //    course = new List<Courses>();
-        //}
+        public User()
+        {
+            course = new List<Courses>();
+        }
 
         public string Name { get; set; } = String.Empty;
 
@@ -42,7 +42,7 @@ namespace SLM.Data.Models
 
         public bool RememberMe { get; set; }
 
-        //public ICollection<Courses> course { get; set; }
+        public ICollection<Courses> course { get; set; }
 
     }
 }

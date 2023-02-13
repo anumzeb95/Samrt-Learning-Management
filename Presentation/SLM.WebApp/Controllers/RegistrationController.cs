@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using SLM.Bussines.Interfaces;
 using SLM.Bussiness.Models;
+using System.Security.Claims;
 
 namespace SLM.WebApp.Controllers
 {
@@ -42,6 +45,54 @@ namespace SLM.WebApp.Controllers
 				return View();
 			}
 		}
+
+
+        // GET: Login
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(UserModel model)
+        {
+            //here our logic is  to compare user from database or any other user provider
+            try
+            {
+                //creating list of claims 
+                var claims = new List<Claim>
+                {
+                new Claim (ClaimTypes.Email, model.Email),
+                };
+
+                //claims identity
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                //creating claims principal object to pass to the sign in method
+                var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+                //signing in
+                await HttpContext.SignInAsync(claimsPrincipal);
+
+                return RedirectToAction("Dashboard", "Account");
+            }
+            catch (Exception ex)
+            {
+                return View(model);
+            }
+
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await this.HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+
+
+
+
         // GET: AccountController
         public ActionResult Dashboard()
         {

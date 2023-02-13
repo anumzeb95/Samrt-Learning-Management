@@ -21,7 +21,7 @@ namespace SLM.WebApp
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
-            builder.Services.AddIdentity<IdentityUser, IdentityRole>();
+            //builder.Services.AddIdentity<IdentityUser, IdentityRole>();
 
 
 
@@ -49,6 +49,7 @@ namespace SLM.WebApp
 
             app.UseAuthentication();
             app.UseAuthorization();
+            app.MapRazorPages();
 
             app.MapControllerRoute(
                 name: "default",

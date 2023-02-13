@@ -4,6 +4,8 @@
     {
         List<TModel> GetAll();
 
+        public TModel GetById(int Id);
+
         public void Add(TModel model);
 
         public void Update(TModel model);

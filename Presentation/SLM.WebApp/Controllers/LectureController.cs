@@ -40,43 +40,43 @@ namespace SLM.WebApp.Controllers
 
 			List<LectureModel> lecture = new List<LectureModel>();
 
-			if (ModelState.IsValid)
-			{
+			//if (ModelState.IsValid)
+			//{
 
 
-				string fileName = formFile.FileName;
-				try
-				{
-					fileName = Path.GetFileName(fileName);
+			//	string fileName = formFile.FileName;
+			//	try
+			//	{
+			//		fileName = Path.GetFileName(fileName);
 
-					string uploadpath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Lecture", fileName);
+			//		string uploadpath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Lecture", fileName);
 
-					var stream = new FileStream(uploadpath, FileMode.Create);
+			//		var stream = new FileStream(uploadpath, FileMode.Create);
 
-					formFile.CopyToAsync(stream);
+			//		formFile.CopyToAsync(stream);
 
-					ViewBag.Message = "File uploaded successfully.";
+			//		ViewBag.Message = "File uploaded successfully.";
 
-				}
+			//	}
 
-				catch
+			//	catch
 
-				{
+			//	{
 
-					ViewBag.Message = "Error while uploading the files.";
-					return View();
-				}
-				lecture = _lectureService.GetAll();
-			}
+			//		ViewBag.Message = "Error while uploading the files.";
+			//		return View();
+			//	}
+			//	lecture = _lectureService.GetAll();
+			//}
 
-			else
-			{
-				return RedirectToAction(nameof(Index));
-			}
+			//else
+			//{
+			//	return RedirectToAction(nameof(Index));
+			//}
 
 
-			return View(lecture);
-			//return View(lecture); 
+			//return View(lecture);
+			return View(); 
 
 
 			//return RedirectToAction(nameof(Index));            
@@ -114,10 +114,12 @@ namespace SLM.WebApp.Controllers
         }
 
 
+
+
         // GET: LectureController/Edit/5
         public ActionResult Edit(int id)
         {
-            var course = _lectureService.GetAll().Where(x => x.Id == id).FirstOrDefault();
+            //var course = _lectureService.GetAll().Where(x => x.Id == id).FirstOrDefault();
             return View(course);
         }
 
@@ -136,18 +138,6 @@ namespace SLM.WebApp.Controllers
                 return View();
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         // GET: CoursesController/Delete/5
@@ -171,24 +161,6 @@ namespace SLM.WebApp.Controllers
 
 
         }
-
-        //List<Lecture> list = new List<Lecture>();
-        //DataTable DbSet = Lecture();
-        //foreach (DataRow dr in DbSet.Rows)
-        //{
-        //    list.Add(new Lecture
-        //    {
-
-        //        Id = model.Id,
-        //        LectureName = model.LectureName,
-        //        LectureDescription = model.LectureDescription,
-        //        LectureURL = model.LectureURL,
-        //        CourseId = model.Id,
-
-        //    });
-        //}
-        //model.FileList = list;
-        //return View(model);
 
 
 

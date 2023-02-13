@@ -30,15 +30,15 @@ namespace SLM.WebApp.Controllers
 
 		[HttpPost]
 
-		public ActionResult Index(LectureModel model, IFormFile formFile)
-
-		{
+		//public ActionResult Index(LectureModel model, IFormFile formFile)
+        public ActionResult Index()
+        {
 			//List<LectureModel> lecture = new List<LectureModel>(); 
 			//var LectureModel = new LectureModel();
 			//_lectureService.Add(LectureModel);
 
 
-			List<LectureModel> lecture = new List<LectureModel>();
+			//List<LectureModel> lecture = new List<LectureModel>();
 
 			//if (ModelState.IsValid)
 			//{
@@ -119,8 +119,9 @@ namespace SLM.WebApp.Controllers
         // GET: LectureController/Edit/5
         public ActionResult Edit(int id)
         {
+          var lectureModel = _lectureService.GetById(id);
             //var course = _lectureService.GetAll().Where(x => x.Id == id).FirstOrDefault();
-            return View(course);
+            return View(lectureModel);
         }
 
         // POST: lectureController/Edit/5

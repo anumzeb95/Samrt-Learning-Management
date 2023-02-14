@@ -4,21 +4,22 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Courses List</h1>
-<div >
+<h1 class="text-lef" style="margin-top:25px;">Courses List</h1>
+
+<div  class=" mt-lg-5">
     
     <div>
         <form asp-action="Index">
 
             <input type="text" name="Search" id="Search" class="form-control" placeholder="search" aria-label="Search" width="400" height="10" /> <br />
 
-            <div>
+            
 
-                <a id="Se" href="#">Display List</a>
+                <a class="btn btn-primary" id="Se" href="#">Display List</a>
            
                   
 
-            </div>
+          
 
         </form>
            
@@ -26,13 +27,15 @@
           
     
 </div> <br />
-
+<hr class="solid" style="border-top: 4px solid #bbb;border-radius: 5px;">
+<br />
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-warning"  asp-action="Create">Create New</a>
 </p>
-<table class="table table-bordered">
+
+<table class="table table-bordered table-hover">
     <thead>
-        <tr>
+        <tr class="table-dark">
             <th>
                 @Html.DisplayNameFor(model => model.Id)
             </th>
@@ -72,9 +75,16 @@
             </td>
                
             <td>
+
                     @Html.ActionLink("Edit", "Edit", new { Id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { Id = item.Id }) |
+               
+
+                   
+                    @Html.ActionLink("Details", "Details", new { Id = item.Id }) |
+                    
+         
                     @Html.ActionLink("Delete", "Delete", new { Id = item.Id })
+               
             </td>
         </tr>
 }

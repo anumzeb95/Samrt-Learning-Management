@@ -1,5 +1,6 @@
 
 using Microsoft.AspNetCore.Identity;
+using SLM.Bussiness.DataServices;
 using SLM.DependencyInjection;
 
 namespace SLM.WebApp
@@ -17,7 +18,8 @@ namespace SLM.WebApp
             builder.Services.AddRazorPages();
             //builder.Services.AddIdentity<IdentityUser, IdentityRole>();
 
-
+            //All custom Configuration
+            //builder.Services.AddSingleton<CoursesService>();
 
 
             //All application DI configyrations

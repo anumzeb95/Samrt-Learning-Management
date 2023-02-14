@@ -10,13 +10,12 @@
     <div>
         <form asp-action="Index">
 
-            <input type="text" name="Search" class="form-control" placeholder="search" aria-label="Search" width="400" height="10" /> <br />
+            <input type="text" name="Search" id="Search" class="form-control" placeholder="search" aria-label="Search" width="400" height="10" /> <br />
 
             <div>
 
-
-               <input type="submit" value="Search" class="btn btn-primary" />
-
+                <a id="Se" href="#">Search</a>
+           
                    <a asp-action="Index">Display List</a>
 
             </div>
@@ -81,3 +80,11 @@
 }
     </tbody>
 </table>
+<script>
+    $(document).ready(function () {
+        $("#Se").click(function (event) {
+            event.preventDefault();
+            window.location.href = "@Url.Action("Index")" + "?Search=" + $("#Search").val();
+        });
+    })
+</script>

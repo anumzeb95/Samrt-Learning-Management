@@ -10,4 +10,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Repositories\SLM.Data.Models\SLM.Data.Models.csproj" />
+  </ItemGroup>
+
 </Project>

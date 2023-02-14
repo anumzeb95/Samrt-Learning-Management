@@ -1,4 +1,6 @@
-﻿namespace SLM.Bussiness.Models
+﻿using SLM.Data.Models;
+
+namespace SLM.Bussiness.Models
 {
     public class CoursesModel
     {

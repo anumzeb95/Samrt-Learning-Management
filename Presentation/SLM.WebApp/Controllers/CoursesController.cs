@@ -5,7 +5,7 @@ using SLM.Bussiness.Models;
 
 namespace SLM.WebApp.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class CoursesController : Controller
 	{
 
@@ -18,12 +18,13 @@ namespace SLM.WebApp.Controllers
 		}
 
 		// GET: CoursesController
-		public ActionResult Index(int Id, string? Search="")
+		public ActionResult Index(string? Search = "")
 		{
-			ViewBag.SearchTerm = Id;
+			//ViewBag.SearchTerm = Id;
+			//var courses = _coursesService.
 			List<CoursesModel> courses;
 
-			if (Search == null)
+			if (String.IsNullOrEmpty(Search))
 			{
 				courses = _coursesService.GetAll();
 			}

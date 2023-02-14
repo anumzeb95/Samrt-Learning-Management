@@ -36,7 +36,7 @@ namespace SLM.Bussiness.DataServices
             return allModel;
         }
 
-        public List<TModel> GetById(int Id)
+        public TModel GetById(int Id)
         {
             var entity = _repository.Get(x=> x.Id==Id).FirstOrDefault();
             var model = _mapper.Map<TModel>(entity);

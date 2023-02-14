@@ -6,7 +6,7 @@ namespace SLM.Bussines.Interfaces
 {
     public interface ICourseService : IGenericService<CoursesModel>
     {
-        public List<CoursesModel> Search(string searchTerm);
+        public List<CoursesModel>? Search(string searchTerm);
 
     }
 }

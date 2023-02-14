@@ -18,9 +18,9 @@ namespace SLM.WebApp.Controllers
 		}
 
 		// GET: CoursesController
-		public ActionResult Index(string? Search)
+		public ActionResult Index(int Id, string? Search="")
 		{
-
+			ViewBag.SearchTerm = Id;
 			List<CoursesModel> courses;
 
 			if (Search == null)

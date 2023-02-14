@@ -18,7 +18,7 @@ namespace SLM.Bussiness.Models
 
         public int CourseId { get; set; }
         [ForeignKey("CourseId")]
-        public virtual Courses Course { get; set; }
+        public virtual CoursesModel Course { get; set; }
 
     }
 

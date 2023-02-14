@@ -20,12 +20,12 @@
   <ItemGroup>
     <PackageReference Include="Grpc.Core" Version="2.46.6" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.13">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -36,6 +36,8 @@
     <ProjectReference Include="..\..\BussinessServices\SLM.Bussiness.DataServices\SLM.Bussiness.DataServices.csproj" />
     <ProjectReference Include="..\..\BussinessServices\SLM.Bussiness.Models\SLM.Bussiness.Models.csproj" />
     <ProjectReference Include="..\..\Infrastructure\SLM.DependencyInjection\SLM.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\Repositories\SLM.Data.Interfaces\SLM.Data.Interfaces.csproj" />
+    <ProjectReference Include="..\..\Repositories\SLM.Data.Models\SLM.Data.Models.csproj" />
     <ProjectReference Include="..\..\Repositories\SLM.Data\SLM.Data.csproj" />
   </ItemGroup>
 

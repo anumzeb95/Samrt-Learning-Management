@@ -6,7 +6,9 @@ using System.Linq.Expressions;
 
 namespace SLM.Data
 {
-	public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
+   
+
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
 	{
 
 		private readonly SLManagementDbContext _context;

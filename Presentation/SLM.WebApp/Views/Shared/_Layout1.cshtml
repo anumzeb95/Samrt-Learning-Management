@@ -24,30 +24,31 @@
                
 
 
-                <div >
+                @*<div >
                     label 
-                </div>
+                </div>*@
 
-                <div>
-                    <a asp-controller="Authentication" asp-action="Logout" class="btn btn-warning btn-sm  active" Text="Submit" Width="60px" OnClick="btnSubmit_Click" >
+                <div class="navbar-nav">
+                    <a asp-controller="Registration" asp-action="Logout" class="nav-item nav-link btn-warning btn-sm  active" Text="Submit" Width="60px" OnClick="btnSubmit_Click" >
                         Logout
                     </a>
                 
                     <div class="divider" />
                     
-                </div>
+                </di>
 
 
               
             </div>
         </nav>
 
-        <div class="sidebar-menu bg-white " id="sidebar-wrapper:20px" width="20px">
+        <div class="sidebar-menu bg-white col-4 " id="sidebar-wrapper:20px" >
             
             <div class="list-group list-group-flush">
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" src="~/images/home.png" href="~/Home/Index">Home</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 active" src="~/images/dashboard.png" href="~/Account/Dashboard">Dashboard</a>
                 <a class="list-group-item list-group-it;em-action list-group-item-light p-3" src="~/images/profile.png" href="~/Account/Profile">Profile</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" src="~/images/lec.png" href="~/Courses/Index">Course</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" src="~/images/lec.png" href="~/Lecture/Index">Lecture</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" src="~/images/abouti.png" href="~/Home/About">About</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" src="~/images/Contact.png" href="~/Home/Contact">Contact</a>

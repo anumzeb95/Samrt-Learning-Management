@@ -29,8 +29,9 @@ namespace SLM.DependencyInjection
 			//setting configuration for authentication
 			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie((CookieOptions) =>
 			{
-				CookieOptions.LoginPath = "/Authentication/Login";
-				CookieOptions.Cookie = new CookieBuilder
+				CookieOptions.LoginPath = "/Registration/Login";
+
+                CookieOptions.Cookie = new CookieBuilder
 				{
 					Name = "SmartLearningManagementCookie"
 				};

@@ -10,13 +10,7 @@ namespace SLM.WebApp
 		{
 
             var builder = WebApplication.CreateBuilder(args);
-            //            var connectionString = builder.Configuration.GetConnectionString("DbConnection") ?? throw new InvalidOperationException("Connection string 'DbConnection' not found.");
-
-            //            builder.Services.AddDbContext<DbContext>(options =>
-            // options.UseSqlServer(connectionString));
-
-            //            builder.Services.AddDefaultIdentity<BaseEntity>(options => options.SignIn.RequireConfirmedAccount = true)
-            //.AddEntityFrameworkStores<DbContext>();
+            
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

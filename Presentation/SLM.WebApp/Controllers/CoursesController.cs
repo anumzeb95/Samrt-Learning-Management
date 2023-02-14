@@ -5,8 +5,8 @@ using SLM.Bussiness.Models;
 
 namespace SLM.WebApp.Controllers
 {
-
-	public class CoursesController : Controller
+    [Authorize]
+    public class CoursesController : Controller
 	{
 
 		private readonly ICourseService _coursesService;

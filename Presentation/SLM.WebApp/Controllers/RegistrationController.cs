@@ -63,6 +63,7 @@ namespace SLM.WebApp.Controllers
                 var claims = new List<Claim>
                 {
                 new Claim (ClaimTypes.Email, model.Email),
+                //new Claim (ClaimTypes.Password, model.Password),
                 };
 
                 //claims identity
@@ -74,9 +75,9 @@ namespace SLM.WebApp.Controllers
                 //signing in
                 await HttpContext.SignInAsync(claimsPrincipal);
 
-                return RedirectToAction("Dashboard", "Account");
+                return RedirectToAction("Dashboard", "Registration");
             }
-            catch (Exception ex)
+            catch (Exception exp)
             {
                 return View(model);
             }
@@ -86,7 +87,8 @@ namespace SLM.WebApp.Controllers
         public async Task<IActionResult> Logout()
         {
             await this.HttpContext.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            //return RedirectToAction("Index", "Home");
+            return RedirectToAction(nameof(Login));
         }
 
 

@@ -16,9 +16,9 @@ namespace SLM.Data.Models
 
 		public string LectureURL { get; set; }
 		public int CourseId { get; set; }
-		[ForeignKey("CourseId")]
+        [ForeignKey("CourseId")]
 
-		public Courses Course { get; set; }
+        public virtual Courses Course { get; set; }
         
 
 

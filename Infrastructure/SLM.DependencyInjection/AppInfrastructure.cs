@@ -50,7 +50,12 @@ namespace SLM.DependencyInjection
 
 			//automapper configuration
 			services.AddAutoMapper(typeof(BussinessEntityMappings));
-		}
+            //services.Configure<AccountOption>((option) =>
+            //{
+            //    // configure admin account for login into the system
+            //    configuration.GetSection("Account").Bind(option);
+            //});
+        }
 
 	}
 }

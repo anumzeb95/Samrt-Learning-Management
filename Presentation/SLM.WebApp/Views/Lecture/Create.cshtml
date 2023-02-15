@@ -1,12 +1,26 @@
-﻿@model SLM.Bussiness.Models.LectureModel
+﻿@{
+    Layout = "_Layout1";
+}
+
+
+@model SLM.Bussiness.Models.LectureModel
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/style.css">
 
 
-<h4>Add Lecture:</h4>
+
+<div class="main">
+   
+    <h2 style="margin-top:50px;">Create</h2>
+
+
+<h3>Add Lecture:</h3>
+<br/>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -53,6 +67,15 @@
     </div>
 </div>
 
+</div>
+
+<style>
+    .main {
+        margin-left: 160px; /* Same as the width of the sidenav */
+        font-size: 16px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+    }
+</style>
 
 @section Scripts {
     @{
@@ -60,4 +83,7 @@
     }
 }
 
-
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>

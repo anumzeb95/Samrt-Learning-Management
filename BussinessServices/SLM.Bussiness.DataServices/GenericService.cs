@@ -11,7 +11,7 @@ namespace SLM.Bussiness.DataServices
     {
         private readonly IRepository<TEntity> _repository;
         private readonly IMapper _mapper;
-        private IRepository<Lecture> repository;
+        //private IRepository<Lecture> repository;
         private IMapper mapper;
 
         public GenericService(IRepository<TEntity> repository, IMapper mapper)
@@ -20,11 +20,11 @@ namespace SLM.Bussiness.DataServices
             _mapper = mapper;
         }
 
-        public GenericService(IRepository<Lecture> repository, IMapper mapper)
-        {
-            this.repository = repository;
-            this.mapper = mapper;
-        }
+        //public GenericService(IRepository<Lecture> repository, IMapper mapper)
+        //{
+        //    this.repository = repository;
+        //    this.mapper = mapper;
+        //}
 
 
 

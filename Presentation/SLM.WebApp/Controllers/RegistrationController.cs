@@ -74,7 +74,7 @@ namespace SLM.WebApp.Controllers
                 //signing in
                 await HttpContext.SignInAsync(claimsPrincipal);
 
-                return RedirectToAction("Dashboard", "Registration");
+                return RedirectToAction("Dashboard", "Account");
             }
             catch (Exception exp)
             {

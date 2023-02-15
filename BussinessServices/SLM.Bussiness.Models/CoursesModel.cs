@@ -19,6 +19,7 @@ namespace SLM.Bussiness.Models
         public string Modification { get; set; } = string.Empty;
 
         public string Description { get; set; } = string.Empty;
+        public string Location { get; set; } = string.Empty;
 
         public ICollection<CoursesModel> Course { get; set; }
     }

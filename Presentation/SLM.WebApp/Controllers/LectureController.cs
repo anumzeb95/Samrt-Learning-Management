@@ -1,111 +1,49 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SLM.Bussiness.Interfaces;
 using SLM.Bussiness.Models;
 
+
 namespace SLM.WebApp.Controllers
 {
-	//[Authorize]
-	public class LectureController : Controller
+    [Authorize]
+    public class LectureController : Controller
 	{
-		private readonly ILectureService _lectureService;
+        private readonly ILectureService _lectureService;
 
-		public LectureController(ILectureService lectureService)
-		{
-			_lectureService = lectureService;
-		}
-
-
-
-		// GET: LectureController
-
-		[HttpGet]
-		public ActionResult Index(LectureModel model)
-		{
-			
-			var models = _lectureService.GetAll();
-			return View(models);
-		}
-
-		[HttpPost]
-
-		//public ActionResult Index(LectureModel model, IFormFile formFile)
-        public ActionResult Index()
+        public LectureController(ILectureService LectureService)
         {
-			//List<LectureModel> lecture = new List<LectureModel>(); 
-			//var LectureModel = new LectureModel();
-			//_lectureService.Add(LectureModel);
+            _lectureService = LectureService;
+        }
 
 
-			//List<LectureModel> lecture = new List<LectureModel>();
-
-			//if (ModelState.IsValid)
-			//{
-
-
-			//	string fileName = formFile.FileName;
-			//	try
-			//	{
-			//		fileName = Path.GetFileName(fileName);
-
-			//		string uploadpath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Lecture", fileName);
-
-			//		var stream = new FileStream(uploadpath, FileMode.Create);
-
-			//		formFile.CopyToAsync(stream);
-
-			//		ViewBag.Message = "File uploaded successfully.";
-
-			//	}
-
-			//	catch
-
-			//	{
-
-			//		ViewBag.Message = "Error while uploading the files.";
-			//		return View();
-			//	}
-			//	lecture = _lectureService.GetAll();
-			//}
-
-			//else
-			//{
-			//	return RedirectToAction(nameof(Index));
-			//}
-
-
-			//return View(lecture);
-			return View(); 
-
-
-			//return RedirectToAction(nameof(Index));            
-
-
-
-			//var models = _lectureService.GetAll();
-			//return View(models);
-		}
-
-        // GET: LectureController
-        [HttpGet]
-        public ActionResult Create()
+        // GET: ProductController
+        public ActionResult Index(int CourseId)
         {
+            ViewBag.CourseId = CourseId;
+           
+            var lecture = _lectureService.LectureForCourse(CourseId);
+            return View(lecture);
+        }
+
+        // GET: ProductController/Create
+        public ActionResult Create(int? CourseId)
+        {
+            ViewBag.CourseId = CourseId;
             return View();
         }
 
-        [HttpPost]
-
-
-        // POST: LectureController/Create
+        // POST: ProductController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(LectureModel model)
         {
             try
             {
+                //todo: need to check if that is useful
+                model.Course = null;
                 _lectureService.Add(model);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { Id = model.CourseId });
             }
             catch
             {
@@ -113,26 +51,24 @@ namespace SLM.WebApp.Controllers
             }
         }
 
-
-
-
-        // GET: LectureController/Edit/5
-        public ActionResult Edit(int id)
+        // GET: ProductController/Edit/5
+        public ActionResult Edit(int id, int CourseId)
         {
-          var lectureModel = _lectureService.GetById(id);
-            //var course = _lectureService.GetAll().Where(x => x.Id == id).FirstOrDefault();
-            return View(lectureModel);
+            var lecture = _lectureService.GetAll().Where(x => x.Id == id).FirstOrDefault();
+
+            return View(lecture);
         }
 
-        // POST: lectureController/Edit/5
+        // POST: ProductController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(LectureModel model)
         {
             try
             {
-                _lectureService.Update(model); ;
-                return RedirectToAction(nameof(Index));
+                model.Course = null;
+                _lectureService.Update(model);
+                return RedirectToAction(nameof(Index), new { storeId = model.CourseId });
             }
             catch
             {
@@ -140,30 +76,18 @@ namespace SLM.WebApp.Controllers
             }
         }
 
-
-        // GET: CoursesController/Delete/5
-        public ActionResult Delete(int Id)
-		{
-		
-		
-
-            try
-            {
-                _lectureService.Delete(Id);
-                ViewBag.Message = "lecture delected successfully.";
-                return RedirectToAction(nameof(Index));
-            }
-
-            catch
-
-            {
-                return View();
-            }
-
-
+        // GET: ProductController/Delete/5
+        public ActionResult Delete(int id, int CourseId)
+        {
+            _lectureService.Delete(id);
+            return RedirectToAction(nameof(Index), new { CourseId });
         }
 
-
+        //public ActionResult Download(int id, int CourseId)
+        //{
+        //    _lectureService.Download(id);
+        //    return RedirectToAction(nameof(Index), new { CourseId });
+        //}
 
 
     }

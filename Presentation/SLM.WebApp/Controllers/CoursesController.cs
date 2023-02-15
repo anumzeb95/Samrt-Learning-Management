@@ -123,12 +123,19 @@ namespace SLM.WebApp.Controllers
 		//[Authorize]
 		public ActionResult Delete(int Id)
 		{
-			_coursesService.Delete(Id);
+			try
+			{
+				_coursesService.Delete(Id);
 
-			return RedirectToAction(nameof(Index));
+				return RedirectToAction(nameof(Index));
+			}
 
+            catch
+            {
+                return View();
+            }
 
-		}
+        }
 
 
 	}

@@ -51,6 +51,9 @@
             </th>
 
             <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Modification)
             </th>
 
@@ -73,7 +76,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Teacher)
             </td>
-               
+                <td>
+                    @item.Location
+                </td>
             <td>
 
                     @Html.ActionLink("Edit", "Edit", new { Id = item.Id }) |

@@ -1,11 +1,20 @@
-﻿@model IEnumerable<SLM.Bussiness.Models.LectureModel>
+﻿@{
+    Layout = "_Layout1";
+}
+@*@model SLM.Bussiness.Models.LectureModel*@
+@model IEnumerable<SLM.Bussiness.Models.LectureModel>
 
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lecture";
 }
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/style.css">
+    
 
-    <h1>Lecture List</h1>
+<div class="main">
+    <h3 style="margin-top:50px;">Lecture List</h3>
 
     <p>
         <a asp-action="Create">Create New</a>
@@ -69,12 +78,26 @@
                     </td>
 
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { Id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { Id = item.Id })
+                       @* @Html.ActionLink("Download", "Download", new { id=item.Id, CourseId = item.CourseId })*@
+                        @Html.ActionLink("Edit", "Edit", new { Id = item.Id, CourseId = item.CourseId }) |
+                        @Html.ActionLink("Delete", "Delete", new { Id = item.Id, CourseId = item.CourseId })
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 
-  
+ </div>
+
+<style>
+    .main {
+        margin-left: 160px; /* Same as the width of the sidenav */
+        font-size: 16px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+    }
+</style>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>

@@ -8,13 +8,9 @@
 
   <ItemGroup>
     <Compile Remove="styles\**" />
-    <Compile Remove="Views\Account\**" />
     <Content Remove="styles\**" />
-    <Content Remove="Views\Account\**" />
     <EmbeddedResource Remove="styles\**" />
-    <EmbeddedResource Remove="Views\Account\**" />
     <None Remove="styles\**" />
-    <None Remove="Views\Account\**" />
   </ItemGroup>
 
   <ItemGroup>

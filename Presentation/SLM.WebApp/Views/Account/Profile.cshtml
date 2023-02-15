@@ -4,12 +4,23 @@
 @model SLM.Bussiness.Models.UserModel
 
 @{
-    ViewData["Title"] = "Profile";
+
+
+    ViewData["Title"] = "Account";
 }
-<br />
-<h3 style="text-align:left; text-justify:auto; font-size:28px;"><b>Profile!</b></h3>
-<br />
-<div class="row">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="css/style.css">
+
+
+<div class="main">
+
+    <h3 style="margin-top:50px;">Profile</h3>
+    <br />
+
+     <div class="row">
     <form method="post" asp-action="Index">
 
         <div class="col-md-6">
@@ -122,3 +133,17 @@
     </form>
 
 </div>
+
+</div>
+
+                        <style>
+    .main {
+        margin-left: 160px; /* Same as the width of the sidenav */
+        font-size: 16px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+    }
+</style>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>

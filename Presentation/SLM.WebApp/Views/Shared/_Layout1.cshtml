@@ -9,196 +9,165 @@
     
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SLM.WebApp.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar navbar-expand-sm navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" 
-                    height="60px" width="60px"/></a>
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><b>Smart Learning Managemenet</b></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar navbar-expand-sm navbar-dark bg-dark position: fixed;">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/images/logo.png"
+                     height="60px" width="60px" />
+            </a>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><b>Smart Learning Managemenet</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-nav">
+                <a asp-controller="Registration" asp-action="Logout" class="nav-item nav-link btn-warning btn-sm  active" Text="Submit" Width="60px" OnClick="btnSubmit_Click">
+                    Logout
+                </a>
+
+                <div class="divider" /></div>
+            </div>
+    </nav>
+
+   
+
+    <div class="sidenav" >
+        <a class="list-group-item list-group-item-action  "active" src="~/images/dashboard.png" href="~/Account/Dashboard">Dashboard</a>
+        <a class="list-group-item list-group-it;em-action  src="~/images/profile.png" href="~/Account/Profile">Profile</a>
+        <a class="list-group-item list-group-item-action  src="~/images/lec.png" href="~/Courses/Index">Course</a>
+        <a class="list-group-item list-group-item-action  src="~/images/lec.png" href="~/Lecture/Index">Lecture</a>
+        <a class="list-group-item list-group-item-action src="~/images/abouti.png" href="~/Account/About">About</a>
+        <a class="list-group-item list-group-item-action  src="~/images/Contact.png" href="~/Account/Contact">Contact</a>
+    </div>
+
+    <style>
+
+        
+            .sidenav {
+                 height: 100%;
+                 width: 190px;
+                 background-color: #212529;
+                 position: fixed;
+                 z-index: 1;
+                 top: 0;
+                 left: 0;
+                 overflow-x: hidden;
+                 margin-top:80px;
+                 padding-top: 80px;
+             }
+
+            .sidenav a {
+               /* padding: 0px 8px 8px 18px;*/
                
-
-
-                @*<div >
-                    label 
-                </div>*@
-
-                <div class="navbar-nav">
-                    <a asp-controller="Registration" asp-action="Logout" class="nav-item nav-link btn-warning btn-sm  active" Text="Submit" Width="60px" OnClick="btnSubmit_Click" >
-                        Logout
-                    </a>
-                
-                    <div class="divider" />
-                    
-                </di>
-
-
-              
-            </div>
-        </nav>
-
-        <div class="sidebar-menu bg-white col-4 " id="sidebar-wrapper:20px" >
-            
-            <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" src="~/images/home.png" href="~/Home/Index">Home</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 active" src="~/images/dashboard.png" href="~/Account/Dashboard">Dashboard</a>
-                <a class="list-group-item list-group-it;em-action list-group-item-light p-3" src="~/images/profile.png" href="~/Account/Profile">Profile</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" src="~/images/lec.png" href="~/Courses/Index">Course</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" src="~/images/lec.png" href="~/Lecture/Index">Lecture</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" src="~/images/abouti.png" href="~/Home/About">About</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" src="~/images/Contact.png" href="~/Home/Contact">Contact</a>
-                
-            
-            </div>
-        </div>
-
-        <table class="table">
-            <div id="top-bar">
-                <div class="component">
-                    <span class="header">Components</span>
-                    <span><i class="fa fa-angle-right" style="font-size:16px"></i></span>
-                    <span class="header">Inputs</span>
-                    <span><i class="fa fa-angle-right" style="font-size:16px"></i></span>
-                    <span class="header">TextBox</span>
-                </div>
-            </div>
-            <div>
-                <div class="content">
-                    <div class="body-inner">
-                        TextBox
-                    </div>
-                    <div style="text-align:left">
-                        <div style="font-size:2vw">Overview</div>
-                        <div class="text">The ASP.NET MVC TextBox (text field) control is most useful for editing, displaying, or entering plain text on forms to capture user names, phone numbers, email, and more. This control is an extended version of the HTML5 TextBox (input type text) control with icons, floating labels, different sizing, grouping, validation states, and more. It is available in an HTML5/CSS version and an ASP.NET MVC version.</div>
-                    </div>
-                    <div style="padding:2vw 0 2vw 0;text-align:left">
-                        <div style="font-size:1.5vw">Key Features</div>
-                        <div class="text">
-                            <p>1. <b>Floating Label  : </b>Floats the placeholder text while focus.</p>
-                            <p>2. <b>Input Group : </b>Group the icons, buttons along with textbox.</p>
-                            <p>3. <b>Validation States: </b>Provides styles for success, error, and warning states.</p>
-                            <p>4. <b>Multiline : </b>Handles multiline input with placeholder text.</p>
-                        </div>
-                    </div>
-                    <div class="link">
-                        <div>
-                            <span style="float:left"><a href="https://ej2.syncfusion.com/aspnetmvc/documentation/textbox/getting-started">Documentation Link</a></span>
-                            <span style="float:right"><a href="https://ej2.syncfusion.com/aspnetmvc/TextBoxes/DefaultFunctionalities#/material">Samples Link</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </table>
-
-        <style>
-            .dropdown-menu {
-                position: relative;
+               margin-top:0px;
+                text-decoration: none;
+                font-size: 18px;
+                background-color: #FEBE00;
+                color: #212529;
+                display: block;
             }
 
-                .dropdown-menu .dropdown-menu {
-                    top: 0;
-                    left: 100%;
-                    margin-top: -1px;
-                }
+             .sidenav a:hover {
+                      color: #f1f1f1;
+             }
 
-                .navbar ul li a:hover
-                {
-                background: #FEBE00;
-                mix-blend-mode:lighten;
-                color: transparent;
-               
-                
-                    color: #ffff;
 
-                }
 
-            .navbar ul li ul
-            {
-                position:absolute;
-                left:0;
-                width: 50px;
-                background:#212121;
-            }
-            
-            .navbar ul li ul li
-            {
-                width:60%;
+   
+
+       
+
+        .navbar ul li a:hover {
+            background: #FEBE00;
+            mix-blend-mode: lighten;
+            color: transparent;
+            color: #ffff;
+        }
+
+        .navbar ul li ul {
+            position: absolute;
+            left: 0;
+            width: 50px;
+            background: #212121;
+        }
+
+            .navbar ul li ul li {
+                width: 60%;
                 border-top: 1px solid rgba(0,0,0,.1);
             }
 
-            .divider {
-                width: 6px;
-                height: auto;
-                display: inline-block;
-            }
+        .divider {
+            width: 6px;
+            height: auto;
+            display: inline-block;
+        }
 
-            div a {
-                font-size: 1.5vw;
-            }
+        div a {
+            font-size: 1.5vw;
+        }
 
-            #top-bar {
-                background: #F6F6F6;
-                border-radius: 2px;
-                height: 0;
-                min-height: 40px;
-            }
+        #top-bar {
+            background: #F6F6F6;
+            border-radius: 2px;
+            height: 0;
+            min-height: 40px;
+        }
 
-            #body_content {
-                margin-top: 0px !important;
-            }
+        #body_content {
+            margin-top: 0px !important;
+        }
 
-            .link {
-                height: 50px;
-                width: 100%;
-            }
+        .link {
+            height: 50px;
+            width: 100%;
+        }
 
-            .header {
-                font-style: italic;
-                font-size: 16px;
-                color: #1694CA;
-                padding-right: 5px;
-            }
+        .header {
+            font-style: italic;
+            font-size: 16px;
+            color: #1694CA;
+            padding-right: 5px;
+        }
 
-            .content {
-                text-align: center;
-                padding: 2.5vw;
-                padding-top: 0px;
-                position: relative;
-                margin: 2vw;
-                box-shadow: 0 0 8px 0;
-            }
+        .content {
+            text-align: center;
+            padding: 2.5vw;
+            padding-top: 0px;
+            position: relative;
+            margin: 2vw;
+            box-shadow: 0 0 8px 0;
+        }
 
-            .body-inner {
-                padding-top: 50px;
-                text-align: center;
-                font-size: 3vw;
-            }
+        .body-inner {
+            padding-top: 50px;
+            text-align: center;
+            font-size: 3vw;
+        }
 
-            body {
-                padding: 0px;
-            }
+        body {
+            padding: 0px;
+        }
 
-            .component {
-                height: 100%;
-                line-height: 40px;
-                padding: 0 0 0 27px;
-            }
+        .component {
+            height: 100%;
+            line-height: 40px;
+            padding: 0 0 0 27px;
+        }
 
-            .text {
-                font-size: 16px;
-                text-align: justify;
-                padding-top: 20px;
-                font-family: "Muli", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
-            }
-            
-            </style>
-    </header>
-    
+        .text {
+            font-size: 16px;
+            text-align: justify;
+            padding-top: 20px;
+            font-family: "Muli", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+        }
+    </style>
+
+
+
+</head>
+<body>
     
 
 
@@ -209,7 +178,7 @@
     </div>
     
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="container" style="margin-right:25px;">
             &copy; 2023 - Store-Learining-Managmenet.WebApp 
         </div>
     </footer>

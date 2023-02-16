@@ -41,9 +41,9 @@ namespace SLM.WebApp.Controllers
         [HttpPost]
         [HttpPost ("FileUpload")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(LectureModel model,List <IFormFile> files)
+        public async Task<ActionResult> Create(LectureModel model)
         {
-            //"wwwroot", "file", 
+            //,List <IFormFile> files  , "wwwroot", "file", 
             try
             {
             //    var size = files.Sum(f => f.Length);

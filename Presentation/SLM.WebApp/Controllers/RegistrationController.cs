@@ -5,15 +5,17 @@ using SLM.Bussines.Interfaces;
 using SLM.Bussiness.Models;
 using System.Security.Claims;
 using Microsoft.Extensions.Options;
+using SLM.Data;
 
 namespace SLM.WebApp.Controllers
 {
 
     public class RegistrationController : Controller
 	{
-		private readonly IUserService _userService;
-		
-		public RegistrationController(IUserService userService)
+       
+        private readonly IUserService _userService;
+        
+        public RegistrationController(IUserService userService)
 		{
 			_userService = userService;
 		}

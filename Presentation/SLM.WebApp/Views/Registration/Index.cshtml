@@ -9,7 +9,7 @@
 <div class="row">
 
     <div class="col-md-6">
-        <img src="~/images/signup.png" class="card-img-top" style="padding-top:5px; width=10px; height=355px;"  alt="...">
+        <img src="~/images/signup.png" class="card-img-top" style="padding-top:4px; width=10px; height=355px;"  alt="...">
     </div>
     <br />
     <br />
@@ -134,7 +134,12 @@
             <div class="form-group justify-content-md-end">
                         <input type="submit" value="Create" OnClick="btnSubmit_Click" class="btn btn-primary" href="/Registration/Login" />
             </div>
-</div>
+
+                    <div>
+                        <label class="form-check-label"> Already have an account? </label>
+                        @Html.ActionLink("Click here!", "Login")
+                    </div>
+     </div>
 
  </div>
    

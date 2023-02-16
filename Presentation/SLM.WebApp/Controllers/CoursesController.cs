@@ -41,7 +41,7 @@ namespace SLM.WebApp.Controllers
 
 
 		// GET: CoursesController/Details/5
-		
+		[HttpGet]
 		public ActionResult Details(int Id)
 		{
 			var course = _coursesService.GetAll().Where(x => x.Id == Id).FirstOrDefault();

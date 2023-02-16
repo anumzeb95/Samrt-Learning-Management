@@ -17,14 +17,27 @@
 <link href='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js' />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css' />
 
+<link rel="stylesheet" href="app.css" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+<!-- Digital Clock CSS -->
 
 <link rel="stylesheet" href="css/style.css">
 
 
 <div class="main">
-    <h3 style="margin-top:50px;">Dashboard</h3>
+   
     <br />
- 
+    <h1 style="margin-top:50px;">Welcome!</h1>
+
+    <div class="container alert-light  card text-black  border-warning  mb-3" style="width:894px; height:220px;">
+        <div class="card-header" style="text-align:center; height:60px;">Date and Time</div>
+        <div class="card-body">
+            <span id="clock"></span>
+        </div>
+    </div>
+
 </div>
 
 <style>
@@ -32,9 +45,28 @@
         margin-left: 160px; /* Same as the width of the sidenav */
         font-size: 28px; /* Increased text to enable scrolling */
         padding: 0px 10px;
-    }
+
+        /*<calender></calender>*/
+
 </style>
+<script>
+
+</script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
+<script src="app.js"></script>
+<!-- Digital Clock Js -->
+<script src="js/index.js"></script>
+
+
+<script type="text/javascript">
+    var clockElement = document.getElementById('clock');
+
+    function clock() {
+        clockElement.textContent = new Date().toString();
+    }
+
+    setInterval(clock, 1000);
+</script>

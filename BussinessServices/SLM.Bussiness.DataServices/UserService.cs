@@ -16,6 +16,6 @@ namespace SLM.Bussiness.DataServices
             _repository = repository;
         }
 
-
+        
     }
 }

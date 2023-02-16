@@ -7,7 +7,7 @@
 <br />
 <h3 style="text-align:left; text-justify:auto; font-size:28px;"><b>Login Here!</b></h3>
 
-<section class="vh-100">
+<section class="vh-80">
     <div class="container py-5 h-60">
         <div class="row d-flex align-items-center justify-content-center h-60">
             <div class="col-md-7 col-lg-6 col-xl-5">
@@ -66,6 +66,10 @@
                         <input type="submit" value="Login" class="btn btn-primary" />
                     </div> <br/>
 
+                    <div>
+                        <label class="form-check-label" asp-for="RememberMe"> Register your self </label>
+                        @Html.ActionLink("Click here!", "Index")
+                    </div>
               </form>
             </div>
         </div>

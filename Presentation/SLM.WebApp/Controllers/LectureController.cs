@@ -13,7 +13,8 @@ namespace SLM.WebApp.Controllers
     public class LectureController : Controller
 	{
         private readonly ILectureService _lectureService;
-       
+
+        
 
         public LectureController(ILectureService LectureService)
         {
@@ -41,36 +42,28 @@ namespace SLM.WebApp.Controllers
         [HttpPost]
         //[HttpPost ("FileUpload")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(LectureModel model)
+        public async Task<ActionResult> Create(LectureModel model, IFormFile file)
         {
-            //,List <IFormFile> files  , "wwwroot", "file", 
+            //.Trim('"')
             try
             {
-                //    var size = files.Sum(f => f.Length);
-                //var filePaths = new List<string>();
-                //foreach (var formFile in files)
-                //{
-                //    if (formFile.Length > 0)
-                //    {
-                //        // full path to file in temp location
-                //        var filePath = Path.Combine(Directory.GetCurrentDirectory(), formFile.FileName); //we are using Temp file name just for the example. Add your own file path.
-                //        filePaths.Add(filePath);
-                //        using (var stream = new FileStream(filePath, FileMode.Create))
-                //        {
-                //            await formFile.CopyToAsync(stream);
-                //        }
-                //    }
-                //}
-                //return Ok(new { count = files.Count, size, filePaths });
+                if (ModelState.IsValid)
+                {
+                    var filename = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.ToString();
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "file", file.FileName);
+                    using (System.IO.Stream stream = new FileStream(path, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                    model.LectureURL = filename;
+                    //todo: need to check if that is useful
+                   // model.Course = null;
+                    _lectureService.Add(model);
+                    return RedirectToAction(nameof(Index), new { CourseId = model.CourseId });
 
-
-                //todo: need to check if that is useful
-                model.Course = null;
-                _lectureService.Add(model);
-                return RedirectToAction(nameof(Index), new { CourseId = model.CourseId });
-
-
-
+                }
+                else
+                    return View();
 
             }
             catch

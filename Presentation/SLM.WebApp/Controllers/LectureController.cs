@@ -13,7 +13,7 @@ namespace SLM.WebApp.Controllers
     public class LectureController : Controller
 	{
         private readonly ILectureService _lectureService;
-        private readonly object _hostingEnv;
+       
 
         public LectureController(ILectureService LectureService)
         {
@@ -39,9 +39,9 @@ namespace SLM.WebApp.Controllers
 
         // POST: ProductController/Create
         [HttpPost]
-        [HttpPost ("FileUpload")]
+        //[HttpPost ("FileUpload")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(LectureModel model)
+        public ActionResult Create(LectureModel model)
         {
             //,List <IFormFile> files  , "wwwroot", "file", 
             try

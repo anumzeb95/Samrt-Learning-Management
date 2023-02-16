@@ -46,28 +46,28 @@ namespace SLM.WebApp.Controllers
             //"wwwroot", "file", 
             try
             {
-                var size = files.Sum(f => f.Length);
-            var filePaths = new List<string>();
-            foreach (var formFile in files)
-            {
-                if (formFile.Length > 0)
-                {
-                    // full path to file in temp location
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), formFile.FileName); //we are using Temp file name just for the example. Add your own file path.
-                    filePaths.Add(filePath);
-                    using (var stream = new FileStream(filePath, FileMode.Create))
-                    {
-                        await formFile.CopyToAsync(stream);
-                    }
-                }
-            }
+            //    var size = files.Sum(f => f.Length);
+            //var filePaths = new List<string>();
+            //foreach (var formFile in files)
+            //{
+            //    if (formFile.Length > 0)
+            //    {
+            //        // full path to file in temp location
+            //        var filePath = Path.Combine(Directory.GetCurrentDirectory(), formFile.FileName); //we are using Temp file name just for the example. Add your own file path.
+            //        filePaths.Add(filePath);
+            //        using (var stream = new FileStream(filePath, FileMode.Create))
+            //        {
+            //            await formFile.CopyToAsync(stream);
+            //        }
+            //    }
+            //}
             //return Ok(new { count = files.Count, size, filePaths });
 
             
                 //todo: need to check if that is useful
                 model.Course = null;
                 _lectureService.Add(model);
-                return RedirectToAction(nameof(Index), new { Id = model.CourseId, count = files.Count, size, filePaths });
+                return RedirectToAction(nameof(Index), new { Id = model.CourseId});
             }
             catch
             {

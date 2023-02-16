@@ -8,6 +8,7 @@ using SLM.Bussiness.DataServices;
 using SLM.Bussiness.Interfaces;
 using SLM.Data;
 using SLM.Data.Interfaces;
+using SLM.DependencyInjection.OptionModels;
 
 namespace SLM.DependencyInjection
 {
@@ -50,12 +51,14 @@ namespace SLM.DependencyInjection
 
 			//automapper configuration
 			services.AddAutoMapper(typeof(BussinessEntityMappings));
-            //services.Configure<AccountOption>((option) =>
-            //{
-            //    // configure admin account for login into the system
-            //    configuration.GetSection("Account").Bind(option);
-            //});
-        }
+
+			//setting up all the option models
+			//services.Configure<AccountOption>((option) =>
+			//{
+			//	// configure admin account for login into the system
+			//	configuration.GetSection("Account").Bind(option);
+			//});
+		}
 
 	}
 }

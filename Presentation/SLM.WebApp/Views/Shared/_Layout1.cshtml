@@ -23,7 +23,7 @@
             </button>
 
             <div class="navbar-nav">
-                <a asp-controller="Registration" asp-action="Logout" class="nav-item nav-link btn-warning btn-sm  active" type="submit" value="Logout" Width="60px" OnClick="btnSubmit_Click">
+                <a asp-controller="Registration" asp-action="Login" class="nav-item nav-link btn-warning btn-sm  active" type="submit" value="Logout" Width="60px" OnClick="btnSubmit_Click">
                     Logout
                 </a>
 
@@ -163,8 +163,25 @@
             font-family: "Muli", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
         }
     </style>
+    @*<script>
+        function btnSubmit_Click() {
+            window.location.href = "/Registration/Index";
+        }
+        function handleChange(myCheckbox) {
+            const emailDiv = document.getElementById('emailDiv', 'pwdDiv');
+            if (myCheckbox.value == "2") {
+                emailDiv.style.display = '';
+                pwdDiv.style.display = '';
+            }
+            else if (myCheckbox.value == "1") {
+                emailDiv.style.display = '';
+                pwdDiv.style.display = '';
+            }
 
+        }
 
+    </script>
+*@
 
 </head>
 <body>

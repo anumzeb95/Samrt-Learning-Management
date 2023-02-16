@@ -92,8 +92,8 @@ namespace SLM.WebApp.Controllers
         public async Task<IActionResult> Logout()
         {
             await this.HttpContext.SignOutAsync();
-            //return RedirectToAction("Index", "Home");
-            return RedirectToAction(nameof(Login));
+            return RedirectToAction("Login", "Registration");
+            //return RedirectToAction(nameof(Login));
         }
 
 

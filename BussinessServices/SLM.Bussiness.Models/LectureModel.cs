@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SLM.Bussiness.Models
 {
@@ -15,6 +16,7 @@ namespace SLM.Bussiness.Models
 		public string LectureDescription { get; set; }
 
 		public string LectureURL { get; set; }
+
 
         public int CourseId { get; set; }
         [ForeignKey("CourseId")]

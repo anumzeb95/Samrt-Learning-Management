@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Net.Http.Headers;
 using SLM.Bussiness.Interfaces;
 using SLM.Bussiness.Models;
 
@@ -10,6 +13,7 @@ namespace SLM.WebApp.Controllers
     public class LectureController : Controller
 	{
         private readonly ILectureService _lectureService;
+        private readonly object _hostingEnv;
 
         public LectureController(ILectureService LectureService)
         {
@@ -35,20 +39,44 @@ namespace SLM.WebApp.Controllers
 
         // POST: ProductController/Create
         [HttpPost]
+        [HttpPost ("FileUpload")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(LectureModel model)
+        public async Task<ActionResult> Create(LectureModel model,List <IFormFile> files)
         {
+            //"wwwroot", "file", 
             try
             {
+                var size = files.Sum(f => f.Length);
+            var filePaths = new List<string>();
+            foreach (var formFile in files)
+            {
+                if (formFile.Length > 0)
+                {
+                    // full path to file in temp location
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), formFile.FileName); //we are using Temp file name just for the example. Add your own file path.
+                    filePaths.Add(filePath);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await formFile.CopyToAsync(stream);
+                    }
+                }
+            }
+            //return Ok(new { count = files.Count, size, filePaths });
+
+            
                 //todo: need to check if that is useful
                 model.Course = null;
                 _lectureService.Add(model);
-                return RedirectToAction(nameof(Index), new { Id = model.CourseId });
+                return RedirectToAction(nameof(Index), new { Id = model.CourseId, count = files.Count, size, filePaths });
             }
             catch
             {
                 return View();
             }
+
+            
+
+           
         }
 
         // GET: ProductController/Edit/5

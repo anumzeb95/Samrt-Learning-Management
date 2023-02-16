@@ -24,7 +24,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+            <form asp-action="Create" method="POST" enctype="multipart/form-data" asp-controller="Lecture" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input asp-for="Id" class="form-control" type="hidden" />
 
@@ -47,14 +47,18 @@
                 <input asp-for="LectureDescription" class="form-control" />
                 <span asp-validation-for="LectureDescription" class="text-danger"></span>
 
-                <label asp-for="LectureURL" class="control-label"></label>
-                <input asp-for="LectureURL" class="form-control" />
-                <span asp-validation-for="LectureURL" class="text-danger"></span>
-
                 <label asp-for="CourseId" class="control-label"></label>
                 <input asp-for="CourseId" class="form-control" />
                 <span asp-validation-for="CourseId" class="text-danger"></span>
 
+
+                <label asp-for="LectureURL" class="control-label"></label>
+                    <input asp-for="LectureURL" class="form-control" type="file" name="files" multiple />
+                <span asp-validation-for="LectureURL" class="text-danger"></span>
+
+                    <div class="form-group">
+                        <input type="submit" value="Upload"/>
+                </div>
 
             </div><br />
             <div class="form-group">

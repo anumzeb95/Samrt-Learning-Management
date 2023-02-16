@@ -5,12 +5,16 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using SLM.Bussiness.DataServices;
 using SLM.Bussiness.Models;
+using Microsoft.AspNetCore.Identity;
+
+
 
 namespace SLM.WebApp.Controllers
 {
 	//[Authorize]
 	public class AccountController : Controller
 	{
+        
 		//private readonly ILogger<HomeController> _logger;
         private readonly IUserService _userService;
         public AccountController(IUserService userService)
@@ -28,8 +32,8 @@ namespace SLM.WebApp.Controllers
        
         public IActionResult Details()
 		{
-            
-            return View();
+           //User = User.Identity.
+            return View("Profile");
             //return View();
         }
         // POST: CoursesController/Details/5

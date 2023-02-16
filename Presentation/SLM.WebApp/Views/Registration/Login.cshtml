@@ -6,92 +6,103 @@
 <br />
 <br />
 <h3 style="text-align:left; text-justify:auto; font-size:28px;"><b>Login Here!</b></h3>
-<br />
 
-<div class="row">
-    <div class="col-md-6">
-        <img src="~/images/login.png" class="card-img-top" style="padding-top:5px; width=10px; height=355px;" alt="...">
-    </div>
-
-    <div class="col-md-6">
-        <div class="col-md-4">
-            <form asp-action="Login">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <br />
-                <br />
-                <br />
-                <div class="col-md-6">
-                    <label asp-for="Designation" class="form-label"><b>Desigation</b></label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" asp-for="Designation" name="Designation" id="Designation" onclick="handleChange(this);"
-                               value="Teacher" checked>
-                        <label class="form-check-label" asp-for="Designation">
-                            Teacher
-                        </label>
+<section class="vh-100">
+    <div class="container py-5 h-60">
+        <div class="row d-flex align-items-center justify-content-center h-60">
+            <div class="col-md-7 col-lg-6 col-xl-5">
+                <img src="~/images/login.png"
+                     class="img-fluid" alt="Phone image">
+            </div>
+            <div class="col-md-6 col-lg-4 col-xl-4 offset-xl-1">
+                <form method="post" asp-action="Login">
+                    <!-- Choose Designation -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" asp-for="Designation">Choose Designation</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="Designation" name="Designation" id="Designation" onclick="handleChange(this);"
+                                   value="Teacher" checked>
+                            <label class="form-check-label" asp-for="Designation">
+                                Teacher
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="Designation" name="Designation" id="Designation" onclick="handleChange(this);"
+                                   value="Student">
+                            <label class="form-check-label" asp-for="Designation">
+                                Student
+                            </label>
+                        </div>
+                        <span asp-validation-for="Designation" class="text-danger"></span>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" asp-for="Designation" name="Designation" id="Designation" onclick="handleChange(this);"
-                               value="Student">
-                        <label class="form-check-label" asp-for="Designation">
-                            Student
-                        </label>
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" asp-for="Email">Email address</label>
+                        <input type="email" id="Email" asp-for="Email" class="form-control " placeholder="abc@globalmail" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
-                    <span asp-validation-for="Designation" class="text-danger"></span>
-                </div>
 
-                <script>
-                    function handleChange(myCheckbox) {
-                        const emailDiv = document.getElementById('emailDiv', 'pwdDiv');
-                        if (myCheckbox.value == "2") {
-                            emailDiv.style.display = '';
-                            pwdDiv.style.display = '';
-                        }
-                        else (myCheckbox.value == "1") {
-                            emailDiv.style.display = '';
-                            pwdDiv.style.display = '';
-                        }
-
-                    }
-
-                </script>
-
-                <br />
-                <br /><br />
-
-                <div class="col-md-6">
-
-                    <label asp-for="Email" class="control-label"><b>Email</b></label>
-                    <input type="text" class="form-control" asp-for="Email" id="Email" placeholder="abc@globalmail">
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-
-
-                <div class="col-md-6">
-                    <label asp-for="Password" class="control-label"><b>Password</b></label>
-                    <input type="password" class="form-control" asp-for="Password" id="Password">
-                    <span asp-validation-for="Password" class="form-control-danger"></span>
-                </div>
-
-
-                <br />
-
-                <div class="col-12">
-                    <div class="form-check">
-                        <input class="form-check-input" asp-for="RememberMe" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" asp-for="RememberMe">
-                            <b>Check me out</b>
-                        </label>
-                        <span asp-validation-for="RememberMe" class="text-danger"></span>
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                <label class="form-label" asp-for="Password">Password</label>
+                <input type="password" asp-for="Password" id="Password" class="form-control " />
+                         <span asp-validation-for="Password" class="form-control-danger"></span>
                     </div>
-                </div>
 
-                <div class="form-group gap-2 d-md-flex justify-content-md-end">
-                    <input type="submit" value="Login" class="btn btn-primary" href="/Account/Dashboard" />
-                </div>
-            </form>
+                    <div class="d-flex justify-content-around align-items-center mb-4">
+                        <!-- Checkbox -->
+                       <span asp-validation-for="RememberMe" class="text-danger"></span>
+                        <div class="form-check">
+                            <input class="form-check-input" asp-for="RememberMe" type="checkbox" value="" id="form1Example3" />
+                            <label class="form-check-label" asp-for="RememberMe"> Remember me </label>
+                        </div>
+
+                    </div>
+
+                    <!-- Submit button -->
+                    
+                    <div class="form-group justify-content-md-end">
+                        <input type="submit" value="Login" class="btn btn-primary" />
+                    </div> <br/>
+
+                    <div class="d-flex align-items-left justify-content-left pb-4">
+                              <p class="mb-0 me-2">Don't have an account?</p>
+                        <input type="submit" value="Register Now" OnClick="btnSubmit_Click" class="btn btn-primary" href="/Registration/Index"  />
+                    </div>
+
+              </form>
+            </div>
         </div>
     </div>
-</div>
+</section>
+
+
+
+
+<script>
+    function btnSubmit_Click() {
+        window.location.href = "/Account/Dashboard";
+    }
+    function handleChange(myCheckbox) {
+        const emailDiv = document.getElementById('emailDiv', 'pwdDiv');
+        if (myCheckbox.value == "2") {
+            emailDiv.style.display = '';
+            pwdDiv.style.display = '';
+        }
+        else if (myCheckbox.value == "1") {
+            emailDiv.style.display = '';
+            pwdDiv.style.display = '';
+        }
+
+    }
+
+</script>
+
+
+
+
+
 @*<div>
     <a asp-action="Index">Back to List</a>
 </div>*@

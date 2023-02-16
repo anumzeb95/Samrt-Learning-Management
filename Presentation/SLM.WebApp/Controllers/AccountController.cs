@@ -3,6 +3,8 @@ using SLM.Bussines.Interfaces;
 using SLM.WebApp.Models;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
+using SLM.Bussiness.DataServices;
+using SLM.Bussiness.Models;
 
 namespace SLM.WebApp.Controllers
 {
@@ -23,11 +25,16 @@ namespace SLM.WebApp.Controllers
 		}
 
 
-
-        public IActionResult Profile()
+       
+        public IActionResult Details()
 		{
-			return View();
-		}
+            
+            return View();
+            //return View();
+        }
+        // POST: CoursesController/Details/5
+      
+        
 
         public IActionResult About()
         {

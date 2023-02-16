@@ -76,7 +76,7 @@ namespace SLM.WebApp.Controllers
 
                 return RedirectToAction("Dashboard", "Account");
             }
-            catch (Exception exp)
+            catch (Exception)//exp
             {
                 return View(model);
             }

@@ -20,119 +20,101 @@
     <h3 style="margin-top:50px;">Profile</h3>
     <br />
 
-     <div class="row">
-    <form method="post" asp-action="Index">
+    <div class="row">
+        <form method="post" asp-action="Index">
 
-        <div class="col-md-6">
-            <div class="row g-3">
+            <div class="col-md-6">
+                <div class="row g-3">
 
-                <div class="col-6">
-                    <label asp-for="Name" class="control-label"><b>Name</b></label>
-                    <input type="text" class="form-control" asp-for="Name" id="Name" placeholder="Joe">
-                    <span asp-validation-for="Name" class="text-danger"></span>
-                </div>
-
-                <div class="col-md-6">
-
-                    <label asp-for="Email" class="control-label"><b>Email</b></label>
-                    <input type="text" class="form-control" asp-for="Email" id="Email" placeholder="abc@globalmail">
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-
-
-                <div class="col-md-6">
-                    <label asp-for="Password" class="control-label"><b>Password</b></label>
-                    <input type="password" class="form-control" asp-for="Password" id="Password">
-                    <span asp-validation-for="Password" class="form-control-danger"></span>
-                </div>
-
-
-                <div class="col-md-6">
-                    <label asp-for="DOB" class="control-label"><b>Date Of Birth</b></label>
-                    <input type="date" class="form-control" asp-for="DOB" id="DOB" placeholder="Joe">
-                    <span asp-validation-for="Name" class="text-danger"></span>
-
-                </div>
-
-
-                <div class="col-md-6">
-                    <label asp-for="Gender" class="control-label"><b>Gender</b></label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" asp-for="Gender" name="Gender" id="Gender" value="Male" checked>
-                        <label asp-for="Gender" class="form-check-label">
-                            Male
-                        </label>
+                    <div class="col-6">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Name)
                     </div>
 
-                    <div class="form-check">
-                        <input class="form-check-input" asp-for="Gender" type="radio" name="Gender" id="Gender" value="Female">
-                        <label asp-for="Gender" class="form-check-label">
-                            Female
-                        </label>
+                    <div class="col-md-6">
+
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Email)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Email)
                     </div>
-                    <span asp-validation-for="Gender" class="text-danger"></span>
-                </div>
 
 
-                <div class="col-md-6">
-                    <label asp-for="Designation" class="form-label"><b>Desigation</b></label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" asp-for="Designation" name="Designation" id="Designation" onclick="handleChange(this);"
-                               value="Teacher" checked>
-                        <label class="form-check-label" asp-for="Designation">
-                            Teacher
-                        </label>
+                    <div class="col-md-6">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Password)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Password)>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" asp-for="Designation" name="Designation" id="Designation" onclick="handleChange(this);"
-                               value="Student">
-                        <label class="form-check-label" asp-for="Designation">
-                            Student
-                        </label>
+
+
+                    <div class="col-md-6">
+                        < <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.DOB)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.DOB)
+
                     </div>
-                    <span asp-validation-for="Designation" class="text-danger"></span>
-                </div>
 
 
-                <div id="coursesDiv" class="col-md-6" style="display:none;">
-                    <label asp-for="Course" class="form-label"><b>Course</b></label>
-                    <input asp-for="Course" type="text" class="form-control" id="Contact">
-                    <span asp-validation-for="Course" class="text-danger"></span>
-
-                </div>
-
-                <div class="col-md-6">
-                    <label asp-for="Contact" class="control-label"><b>Contact</b></label>
-                    <input asp-for="Contact" type="text" class="form-control" id="Contact">
-                    <span asp-validation-for="Contact" class="text-danger"></span>
-                </div>
-
-                <div class="col-12">
-                    <label asp-for="Address" class="control-label"><b>Address</b></label>
-                    <input type="text" asp-for="Address" class="form-control" id="Address" placeholder="1234 Main St">
-                    <span asp-validation-for="Address" class="text-danger"></span>
-                </div>
-                <br />
-
-                <div class="col-12">
-                    <div class="form-check">
-                        <input class="form-check-input" asp-for="RememberMe" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" asp-for="RememberMe">
-                            <b>Check me out</b>
-                        </label>
-                        <span asp-validation-for="RememberMe" class="text-danger"></span>
+                    <div class="col-md-6">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Gender)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Gender)
                     </div>
+
+
+                    <div class="col-md-6">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Designation)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Designation)
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Course)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Course)
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Contact)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Contact)
+                    </div>
+
+                    <div class="col-12">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Address)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Address)
+                    </div>
+                    <br />
+
+
                 </div>
-                <div class="form-group justify-content-md-end">
-                    <input type="submit" value="Create" class="btn btn-primary" href="/Account/Dashboard" />
-                </div>
+
             </div>
 
-        </div>
+        </form>
 
-    </form>
-
-</div>
+    </div>
 
 </div>
 

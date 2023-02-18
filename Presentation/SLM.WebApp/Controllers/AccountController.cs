@@ -13,7 +13,7 @@ using SLM.Data.Migrations;
 
 namespace SLM.WebApp.Controllers
 {
-	//[Authorize]
+	[Authorize]
 	public class AccountController : Controller
 	{
         //private readonly ILogger<HomeController> _logger;

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SLM.Bussiness.Models
 {
+	
 	public class UserModel
 	{
         public UserModel()

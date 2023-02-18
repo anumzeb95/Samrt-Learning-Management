@@ -9,7 +9,7 @@ using SLM.Bussiness.Models;
 
 namespace SLM.WebApp.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class LectureController : Controller
 	{
         private readonly ILectureService _lectureService;

@@ -6,6 +6,7 @@ namespace SLM.Bussines.Interfaces
 	public interface IUserService : IGenericService<UserModel>
 	{
 		//public List<CoursesModel> Search(string searchTerm);
+		public UserModel GetProfile(int Id);
 
 	}
 }

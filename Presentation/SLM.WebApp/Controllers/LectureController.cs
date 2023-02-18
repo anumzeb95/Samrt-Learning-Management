@@ -9,21 +9,24 @@ using SLM.Bussiness.Models;
 
 namespace SLM.WebApp.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class LectureController : Controller
 	{
         private readonly ILectureService _lectureService;
-
-        
+        private readonly string wwwrootDirectory = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\file");
+        //private readonly IHttpContextAccessor _httpContextAccessor;
+        //private readonly IWebHostEnvironment _webHostEnvironment;
 
         public LectureController(ILectureService LectureService)
         {
             _lectureService = LectureService;
+            //_httpContextAccessor = httpContextAccessor;
+            //_webHostEnvironment = webHostEnvironment;
         }
 
 
         // GET: ProductController
-        public ActionResult Index(int CourseId)
+        public ActionResult Index(int? CourseId)
         {
             ViewBag.CourseId = CourseId;
            
@@ -34,7 +37,8 @@ namespace SLM.WebApp.Controllers
         // GET: ProductController/Create
         public ActionResult Create(int? CourseId)
         {
-            ViewBag.CourseId = CourseId;
+           //List<string> file = Directory.GetFiles(wwwrootDirectory, "*.pdf").Select(Path.GetFileName).ToList();
+             ViewBag.CourseId = CourseId;
             return View();
         }
 
@@ -42,35 +46,56 @@ namespace SLM.WebApp.Controllers
         [HttpPost]
         //[HttpPost ("FileUpload")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(LectureModel model, IFormFile file)
+        public async Task<ActionResult> Create([FromForm]LectureModel model)
         {
             //.Trim('"')
             try
             {
-                if (ModelState.IsValid)
+                var file = Request.Form.Files[0];
+                
+                if (file != null)
                 {
-                    var filename = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.ToString();
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "file", file.FileName);
-                    using (System.IO.Stream stream = new FileStream(path, FileMode.Create))
+                    var filename= DateTime.Now.Ticks.ToString() +Path.GetExtension(file.FileName);
+                    var path = Path.Combine(wwwrootDirectory, filename);
+
+                    using (var stream = new FileStream(path, FileMode.Create))
                     {
                         await file.CopyToAsync(stream);
                     }
-                    model.LectureURL = filename;
-                    //todo: need to check if that is useful
-                   // model.Course = null;
-                    _lectureService.Add(model);
-                    return RedirectToAction(nameof(Index), new { CourseId = model.CourseId });
 
+                    //return RedirectToAction(nameof(Create));
+                    model.LectureURL = @"file\"+filename;
+                    _lectureService.Add(model);
+                    return RedirectToAction(nameof(Create), new { CourseId = model.CourseId });
                 }
+               
+
+                //if (ModelState.IsValid)
+                //{
+                //    var filename = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.ToString();
+                //    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "file", file.FileName);
+                //    using (System.IO.Stream stream = new FileStream(path, FileMode.Create))
+                //    {
+                //        await file.CopyToAsync(stream);
+                //    }
+                //    model.LectureURL = filename;
+                //    //todo: need to check if that is useful
+                //    // model.Course = null;
+                //    _lectureService.Add(model);
+                //    return RedirectToAction(nameof(Create), new { CourseId = model.CourseId });
+
+                //}
                 else
                     return View();
+ 
 
             }
             catch
             {
                 return View();
             }
-           
+            return View();
+
         }
 
         // GET: ProductController/Edit/5

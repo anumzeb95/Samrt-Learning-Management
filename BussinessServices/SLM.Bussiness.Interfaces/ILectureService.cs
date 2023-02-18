@@ -8,6 +8,6 @@ namespace SLM.Bussiness.Interfaces
 
         //List<LectureModel> FormFile (IFormFile formFile)
 
-        public List<LectureModel> LectureForCourse(int CourseId);
+        public List<LectureModel> LectureForCourse(int? CourseId);
     }
 }

@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "_Layout";
-    Layout = "_Layout1";
+    //Layout = "_Layout1";
 }
 @model IEnumerable<SLM.Bussiness.Models.CoursesModel>
 
@@ -81,7 +81,7 @@
                 @Html.DisplayFor(modelItem => item.Teacher)
             </td>
                 <td>
-                    @item.Location
+                    <a asp-action="Index" asp-controller="Lecture" asp-route-CourseId="@item.Id">Lectures</a>
                 </td>
             <td>
 
@@ -92,9 +92,10 @@
                     @Html.ActionLink("Details", "Details", new { Id = item.Id }) |
                     
          
-                    @Html.ActionLink("Delete", "Delete", new { Id = item.Id })
+                    @Html.ActionLink("Delete", "Delete", new { Id = item.Id }) 
+                    
                
-            </td>
+            </td>s
         </tr>
 }
     </tbody>

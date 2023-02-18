@@ -13,9 +13,10 @@ namespace SLM.Bussiness.DataServices
 			//convert easily from product to model and viceversa
 			CreateMap<CoursesModel, Courses>().ReverseMap();
 			CreateMap<LectureModel, Lecture>().ReverseMap();
-			CreateMap<UserModel, User>().ReverseMap();
+			CreateMap<UserModel, User>();
+            CreateMap<User, UserModel>();
 
-		}
+        }
 
 	}
 }

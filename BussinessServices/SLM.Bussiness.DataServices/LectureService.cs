@@ -17,9 +17,15 @@ namespace SLM.Bussiness.DataServices
             _repositry = repository;
         }
 
-        public List<LectureModel> LectureForCourse(int CourseId)
+        public List<LectureModel> LectureForCourse(int? CourseId)
         {
-            var lectureQurable = _repositry.Get(x => x.CourseId == CourseId);
+            var lectureQurable = _repositry.Get(x =>x.CourseId != null);
+            
+            if(CourseId != null)
+            {
+                lectureQurable = lectureQurable.Where(x => x.CourseId == CourseId);
+            }
+            
 
             
             var lectureModels = lectureQurable.Select(x => new LectureModel
@@ -32,8 +38,6 @@ namespace SLM.Bussiness.DataServices
             }).ToList();
             return lectureModels;
         }
-
-        
 
     }
 }

@@ -3,6 +3,7 @@ using AutoMapper;
 using SLM.Bussines.Interfaces;
 using SLM.Bussiness.Models;
 using SLM.Data.Interfaces;
+using SLM.Data.Migrations;
 using SLM.Data.Models;
 
 
@@ -16,6 +17,23 @@ namespace SLM.Bussiness.DataServices
             _repository = repository;
         }
 
+        public UserModel GetProfile(int Id)
+        {
+            var Profile = _repository.Get(x=>x.Id == Id).FirstOrDefault();
+            var UserProfile = new UserModel
+            {
+                Name = Profile.Name,
+                Email = Profile.Email,
+                Password = Profile.Password,
+                DOB = Profile.DOB,
+                Gender = Profile.Gender,
+                Designation = Profile.Designation,
+                Course = Profile.Course,
+                Address = Profile.Address,
+                Contact = Profile.Contact
+            };
         
+           return UserProfile;
+        }
     }
 }

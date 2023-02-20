@@ -16,7 +16,7 @@
         public string Description { get; set; } = string.Empty;
         public string Location { get; set; } = string.Empty;
 
-        public ICollection<Lecture> lecture { get; set; }
+        public ICollection<Lecture> lecture { get; set; } //coleection navigation property
 
     }
 }

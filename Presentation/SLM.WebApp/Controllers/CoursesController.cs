@@ -11,8 +11,8 @@ namespace SLM.WebApp.Controllers
 
 		private readonly ICourseService _coursesService;
 
-		//dependency injection
-		public CoursesController(ICourseService coursesService)
+        //dependency injection
+        public CoursesController(ICourseService coursesService)
 		{
 			_coursesService = coursesService;
 		}
